@@ -8,9 +8,7 @@ const App = () => {
     return (
             <div className='app-wrapper'>
               <Login />
-
-              <Route path='/profile/'
-                           render={ () => <Profile /> }/>
+              <Route path='/profile/' render={ () => <Profile /> }/>
             </div>
         )
 }
