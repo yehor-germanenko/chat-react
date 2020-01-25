@@ -1,14 +1,7 @@
 import { connect } from 'react-redux';
 import Profile from './profile'
+import withAuthRedirect from '../../hoc/withAuthRedirect'
+import {compose} from "redux";
 
-let mapStateToProps = (state) => {
-    return {
-        isAuth: state.auth.isAuth
-    }
-}
 
-let mapDispatchToProps = () => {
-    return {}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default compose(connect(), withAuthRedirect)(Profile);
