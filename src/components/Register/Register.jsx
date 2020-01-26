@@ -9,22 +9,23 @@ import style from "../../common/FormsControls/FormsControls.module.css"
 
 const RegisterForm = (props) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form className="form" onSubmit={props.handleSubmit}>
+            <h1 className="header">Register</h1>
             <div>
-                <Field placeholder={"Name"} name={"name"}
+                <Field className="fieldWrapper" placeholder={"Name"} name={"name"}
                        validate={[required]}
                        component={Input}/>
             </div>
             <div>
-                <Field placeholder={"Status"} name={"status"} type={"text"} component={Input}/>
+                <Field className="fieldWrapper" placeholder={"Status"} name={"status"} type={"text"} component={Input}/>
             </div>
             <div>
-                <Field placeholder={"Email"} name={"email"}
+                <Field className="fieldWrapper" placeholder={"Email"} name={"email"}
                        validate={[required, emailValid]}
                        component={Input}/>
             </div>
             <div>
-                <Field placeholder={"Password"} name={"password"} type={"password"}
+                <Field className="fieldWrapper" placeholder={"Password"} name={"password"} type={"password"}
                        validate={[required]}
                        component={Input}/>
             </div>
@@ -33,7 +34,7 @@ const RegisterForm = (props) => {
             </div>
             }
             <div>
-                <button>Register</button>
+                <button className="button">Register</button>
             </div>
         </form>
     )
@@ -51,7 +52,6 @@ const Login = (props) => {
     }
 
     return <div>
-        <h1>Register</h1>
         <RegisterReduxForm onSubmit={onSubmit} />
     </div>
 }

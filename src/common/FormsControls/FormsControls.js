@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./FormsControls.module.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
 
 const FormControl = ({input, meta, child, ...props}) => {
     const hasError = meta.touched && meta.error;
@@ -8,7 +10,7 @@ const FormControl = ({input, meta, child, ...props}) => {
             <div>
                 {props.children}
             </div>
-            { hasError && <span>{meta.error}</span> }
+            { hasError && <span ><FontAwesomeIcon icon={faExclamationCircle}/> {meta.error}</span> }
         </div>
     )
 }

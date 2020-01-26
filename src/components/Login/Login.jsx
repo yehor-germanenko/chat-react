@@ -5,31 +5,33 @@ import {required} from "../../utils/validators";
 import {connect} from "react-redux";
 import {login} from "../../redux/auth-reduser";
 import {Redirect} from "react-router-dom";
-import style from "../../common/FormsControls/FormsControls.module.css"
+import sControls from "../../common/FormsControls/FormsControls.module.css"
+import s from "./Login.module.css"
 
 const LoginForm = (props) => {
-    console.log(props)
     return (
-        <form onSubmit={props.handleSubmit}>
-            <div>
+        <form className="form" onSubmit={props.handleSubmit}>
+            <h1 className="header">Login</h1>
+            <div className="fieldWrapper">
                 <Field placeholder={"Email"} name={"email"}
                        validate={[required]}
                        component={Input}/>
             </div>
-            <div>
+            <div className="fieldWrapper">
                 <Field placeholder={"Password"} name={"password"} type={"password"}
                        validate={[required]}
                        component={Input}/>
             </div>
-            <div>
-                <Field component={Input} name={"rememberMe"} type={"checkbox"}/> remember me
+            <div className={s.checkboxWrapper}>
+                <Field component={Input} name={"rememberMe"} type={"checkbox"}/>
+                <span>Remember me</span>
             </div>
-            { props.error && <div className={style.formSummaryError}>
+            { props.error && <div className={sControls.formSummaryError}>
                 {props.error}
             </div>
             }
             <div>
-                <button>Login</button>
+                <button className="button">Login</button>
             </div>
         </form>
     )
@@ -46,10 +48,10 @@ const Login = (props) => {
         return <Redirect to={"/profile"} />
     }
 
-    return <div>
-        <h1>Login</h1>
+    return (
+    <div className={s.login}>
         <LoginReduxForm onSubmit={onSubmit} />
-    </div>
+    </div>);
 }
 
 const mapStateToProps = (state) => ({

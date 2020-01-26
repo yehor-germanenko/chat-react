@@ -7,15 +7,15 @@ import Register from'./components/Register/Register'
 import Main from './components/Main/Main';
 
 const App = () => {
-    return (
-            <div className='app-wrapper'>
-              <Route exact path='/' render={ () => <Main /> }/>
-
-              <Route path='/profile/' render={ () => <Profile /> }/>
-              <Route path='/login/' render={ () => <Login /> }/>
-              <Route path='/register/' render={ () => <Register /> }/>
-            </div>
-        )
+  return (
+    <div className="app-wrapper">
+      <Route exact path='/' render={ () => <Main /> }/>
+      
+      <Route path='/profile/' render={ () => <Profile /> }/>
+      <Route exact path='/login/' render={ () => <Login /> }/>
+      <Route exact path='/register/' render={ () => <Register /> }/>
+    </div>
+  )
 }
 
 export default App;
