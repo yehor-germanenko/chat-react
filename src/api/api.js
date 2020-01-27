@@ -2,10 +2,10 @@ import * as axios from "axios";
 
 
 const instance = axios.create({
-    withCredentials: true,
-    baseURL: 'https://social-network.samuraijs.com/api/1.0/',
+    /*withCredentials: true,*/
+    baseURL: 'https://animals-chat.herokuapp.com/',
     headers:     {
-        "API-KEY": "b1775b2f-c3a5-4509-8dc9-90b5629de7c3"
+        "API-KEY": "3deb2104-0a97-4a6b-8b77-4ec1374c2ee9"
     }
 });
 
@@ -14,15 +14,24 @@ export const authAPI = {
     me() {
         return instance.get(`auth/me`);
     },
-    login(email, password, rememberMe = false) {
-        return instance.post(`auth/login`, { email, password, rememberMe });
+
+    login(email, password) {
+        return instance.post(`auth/login`, { email, password });
     },
+    
     logout() {
         return instance.delete(`auth/login`);
     },
+
     register(name, email, password){
-        console.log({name, email, password});
+        return instance.post(`users/create`, {name, email, password});
+    },
+    
+    updateData(name, email, password) {
+        return instance.patch(`user/update`, {name, email, password});
     }
 }
 
-
+export const updateAPI = {
+    
+}

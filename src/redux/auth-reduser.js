@@ -7,7 +7,7 @@ const SET_USER_DATA = 'SET_USER_DATA';
 let initialState = {
     userId: null,
     email: null,
-    login: null,
+    name: null,
     isAuth: false
 };
 
@@ -25,24 +25,25 @@ const authReducer = (state = initialState, action) => {
 }
 
 
-export const setAuthUserData = (userId, email, login, isAuth) => ({type: SET_USER_DATA, payload:
-        {userId, email, login, isAuth}  });
+export const setAuthUserData = (userId, email, name, isAuth) => ({type: SET_USER_DATA, payload:
+        {userId, email, name, isAuth}  });
 
 export const getAuthUserData = () => (dispatch) => {
     authAPI.me()
         .then(response => {
             console.log(response.data.data);
             if (response.data.resultCode === 0) {
-                let {id, login, email} = response.data.data;
-                dispatch(setAuthUserData(id, email, login, true));
+                let {id, email, name} = response.data.data;
+                dispatch(setAuthUserData(id, email, name, true));
             }
         });
 }
 
-export const login = (email, password, rememberMe) => (dispatch) => {
+export const login = (email, password) => (dispatch) => {
 
-    authAPI.login(email, password, rememberMe)
+    authAPI.login(email, password)
         .then(response => {
+            console.log(response);
             if (response.data.resultCode === 0) {
                 dispatch(getAuthUserData())
             } else {
@@ -65,6 +66,7 @@ export const logout = () => (dispatch) => {
 export const register = (name, email, password) => (dispatch) => {
     authAPI.register(name, email, password)
         .then(response => {
+            console.log(response);
             /*if (response.data.resultCode === 0) {
                 dispatch(getAuthUserData())
             } else {
@@ -72,6 +74,15 @@ export const register = (name, email, password) => (dispatch) => {
                 dispatch(stopSubmit("register", {_error: message}));
 
             }*/
+        });
+}
+
+export const updateData = (name, email, password) => (dispatch) => {
+    authAPI.updateData(name, email, password)
+        .then(response => {
+            if (response.data.resultCode === 0) {
+                dispatch(getAuthUserData(name, email, password));
+            }
         });
 }
 

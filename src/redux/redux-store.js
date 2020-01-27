@@ -14,3 +14,4 @@ window.store = store;
 
 
 export default store;
+//profile: profileReducer,
