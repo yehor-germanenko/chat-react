@@ -4,7 +4,7 @@ import {Input} from "../../common/FormsControls/FormsControls";
 import {required} from "../../utils/validators";
 import {connect} from "react-redux";
 import {login} from "../../redux/auth-reduser";
-import {Redirect} from "react-router-dom";
+import {Redirect, NavLink} from "react-router-dom";
 import sControls from "../../common/FormsControls/FormsControls.module.css"
 import s from "./Login.module.css"
 
@@ -22,9 +22,16 @@ const LoginForm = (props) => {
                        validate={[required]}
                        component={Input}/>
             </div>
-            <div className={s.checkboxWrapper}>
-                <Field component={Input} name={"rememberMe"} type={"checkbox"}/>
-                <span>Remember me</span>
+            <div className={s.footerLogin}>
+                <div className={s.checkboxWrapper}>
+                    <Field component={Input} name={"rememberMe"} type={"checkbox"}/>
+                    <span>Remember me</span>
+                </div>
+                <div className={s.createNew}>
+                    <NavLink to="/register">
+                        Create new account
+                    </NavLink>
+                </div>
             </div>
             { props.error && <div className={sControls.formSummaryError}>
                 {props.error}

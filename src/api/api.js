@@ -20,8 +20,8 @@ export const authAPI = {
     logout() {
         return instance.delete(`auth/login`);
     },
-    register(name, status, email, password){
-        console.log({name, status, email, password});
+    register(name, email, password){
+        console.log({name, email, password});
     }
 }
 

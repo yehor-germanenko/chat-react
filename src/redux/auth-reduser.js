@@ -62,17 +62,16 @@ export const logout = () => (dispatch) => {
         });
 }
 
-export const register = (name, status, email, password) => (dispatch) => {
-
-    authAPI.register(name, status, email, password)
+export const register = (name, email, password) => (dispatch) => {
+    authAPI.register(name, email, password)
         .then(response => {
-            if (response.data.resultCode === 0) {
+            /*if (response.data.resultCode === 0) {
                 dispatch(getAuthUserData())
             } else {
                 let message = response.data.messages.length > 0 ? response.data.messages[0] : "Some error";
                 dispatch(stopSubmit("register", {_error: message}));
 
-            }
+            }*/
         });
 }
 
