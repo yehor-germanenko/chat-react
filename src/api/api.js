@@ -1,11 +1,13 @@
 import * as axios from "axios";
 
+const token = localStorage.token;
 
 const instance = axios.create({
     /*withCredentials: true,*/
     baseURL: 'https://animals-chat.herokuapp.com/',
     headers:     {
-        "API-KEY": "3deb2104-0a97-4a6b-8b77-4ec1374c2ee9"
+        "API-KEY": "3deb2104-0a97-4a6b-8b77-4ec1374c2ee9",
+        "Authorization" : token
     }
 });
 
@@ -29,6 +31,10 @@ export const authAPI = {
     
     updateData(name, email, password) {
         return instance.patch(`user/update`, {name, email, password});
+    },
+
+    users(){
+        return instance.get(`users`);
     }
 }
 

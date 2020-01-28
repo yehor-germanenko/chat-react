@@ -3,7 +3,6 @@ import {stopSubmit} from "redux-form";
 
 const SET_USER_DATA = 'SET_USER_DATA';
 
-
 let initialState = {
     userId: null,
     email: null,
@@ -18,7 +17,6 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 ...action.payload
             }
-
         default:
             return state;
     }
@@ -31,23 +29,23 @@ export const setAuthUserData = (userId, email, name, isAuth) => ({type: SET_USER
 export const getAuthUserData = () => (dispatch) => {
     authAPI.me()
         .then(response => {
-            console.log(response.data.data);
-            if (response.data.resultCode === 0) {
-                let {id, email, name} = response.data.data;
-                dispatch(setAuthUserData(id, email, name, true));
+            console.log(response)
+            if (response.status === 200) {
+                /*let {id, email, name} = response.data.data;*/
+                dispatch(setAuthUserData("id", "email", "name", true));
             }
         });
 }
 
 export const login = (email, password) => (dispatch) => {
-
     authAPI.login(email, password)
         .then(response => {
-            console.log(response);
+            console.log(response)
             if (response.data.resultCode === 0) {
-                dispatch(getAuthUserData())
+                localStorage.setItem("token", response.data.token);
+                dispatch(getAuthUserData());
             } else {
-                let message = response.data.messages.length > 0 ? response.data.messages[0] : "Some error";
+                let message = response.data.errors.length > 0 ? response.data.errors[0] : "Some error";
                 dispatch(stopSubmit("login", {_error: message}));
 
             }
@@ -67,13 +65,14 @@ export const register = (name, email, password) => (dispatch) => {
     authAPI.register(name, email, password)
         .then(response => {
             console.log(response);
-            /*if (response.data.resultCode === 0) {
-                dispatch(getAuthUserData())
+            if (response.data.resultCode === 0) {
+                login(email, password);
             } else {
-                let message = response.data.messages.length > 0 ? response.data.messages[0] : "Some error";
+                console.log(response);
+                let message = response.data.errors.length > 0 ? response.data.errors[0] : "Some error";
                 dispatch(stopSubmit("register", {_error: message}));
 
-            }*/
+            }
         });
 }
 
@@ -83,6 +82,13 @@ export const updateData = (name, email, password) => (dispatch) => {
             if (response.data.resultCode === 0) {
                 dispatch(getAuthUserData(name, email, password));
             }
+        });
+}
+
+export const users = () => (dispatch) => {
+    authAPI.users()
+        .then(response => {
+            console.log(response)
         });
 }
 

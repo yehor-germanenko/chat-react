@@ -1,5 +1,6 @@
 .app-wrapper{
   background-image: url('./assets/images/background.jpg');
+  background-position: center;
 }
 
 .button{

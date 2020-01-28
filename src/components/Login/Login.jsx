@@ -7,8 +7,22 @@ import {login} from "../../redux/auth-reduser";
 import {Redirect, NavLink} from "react-router-dom";
 import sControls from "../../common/FormsControls/FormsControls.module.css"
 import s from "./Login.module.css"
+import * as axios from "axios";
+
 
 const LoginForm = (props) => {
+
+    const Users = (e) => {
+        e.preventDefault();
+        axios({
+          method: 'get',
+          url: 'https://animals-chat.herokuapp.com/users',
+          headers:     {
+            "API-KEY": "3deb2104-0a97-4a6b-8b77-4ec1374c2ee9",
+            "Authorization" : "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1ODAzMDg0NzZ9.iAZft0DUPXsrzEKl1U5VWTCFIkRuhLOgM4Sp4Q6_isM"
+        }
+        }).then( response => {console.log(response)});
+    };
     return (
         <form className="form" onSubmit={props.handleSubmit}>
             <h1 className="header">Login</h1>
@@ -40,6 +54,7 @@ const LoginForm = (props) => {
             <div>
                 <button className="button">Login</button>
             </div>
+        <button className="button" onClick={Users}>{"{ Get_users }"}</button>
         </form>
     )
 }
@@ -48,7 +63,7 @@ const LoginReduxForm =  reduxForm({form: 'login'})(LoginForm)
 
 const Login = (props) => {
     const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe);
+        props.login(formData.email, formData.password);
     }
 
     if (props.isAuth) {
