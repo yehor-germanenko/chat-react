@@ -2,9 +2,11 @@ import { reducer as formReducer } from 'redux-form'
 import thunkMiddleware from "redux-thunk";
 import authReducer from "./auth-reduser";
 import {applyMiddleware, combineReducers, createStore} from "redux";
+import profileReducer from './profile-reduser';
 
 let reducers = combineReducers({
     auth: authReducer,
+    profile: profileReducer,
     form: formReducer   
 })
 

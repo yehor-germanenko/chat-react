@@ -27,17 +27,23 @@ export const authAPI = {
 
     register(name, email, password){
         return instance.post(`users/create`, {name, email, password});
-    },
-    
-    updateData(name, email, password) {
-        return instance.patch(`user/update`, {name, email, password});
-    },
-
-    users(){
-        return instance.get(`users`);
     }
 }
 
-export const updateAPI = {
-    
+export const userAPI = {
+    getProfile() {
+        return instance.get(`profile`);
+    },
+
+    /*getUserProfile() {
+        return instance.get(`profile` + id);
+    },*/
+
+    updateProfile(name, email, password) {
+        return instance.patch(`profile/update`, {name, email, password});
+    },
+
+    updatePassword (password, newPassword) {
+        return instance.patch(`profile/password`, password, newPassword)
+    }
 }

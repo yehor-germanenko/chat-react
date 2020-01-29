@@ -6,10 +6,7 @@ export const required = value => {
 export const minMaxLengthCreator = (minLength, maxLength) => (value) => {
     if (value.length < minLength || value.length > maxLength) {
         return `length should be ${minLength} to ${maxLength}`;
-    } /*else {
-        console.log('vaild')
-        return undefined;
-    }*/
+    }
 }
 
 export const emailValid = (email) => {
