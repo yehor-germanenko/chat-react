@@ -1,33 +1,10 @@
-import {connect} from 'react-redux';
-import Profile from './Profile';
-import withAuthRedirect from '../../hoc/withAuthRedirect';
-import {compose} from "redux";
-import React from 'react';
-import sControls from "../../common/FormsControls/FormsControls.module.css";
-import {Field, reduxForm} from "redux-form";
-import {Input} from "../../common/FormsControls/FormsControls";
-import {required, emailValid} from "../../utils/validators";
-import {getUserData, updateData, updatePassword} from "../../redux/profile-reduser"
-
-class ProfileContainer extends React.Component {
-    componentDidMount(){
-        this.props.getUserData();
-    }
-
-    render() {
-        console.log("get", this.props);
-        return (
-            <Profile id={this.props.id} name={this.props.name} 
-            email={this.props.email} getUserData={this.props.getUserData} 
-            updateData={this.props.updateData} updatePassword={this.props.updatePassword}/>
-        )
-    }
-}
-
 class ProfileFrom extends React.Component {
 
     state = {
         editModeEmail: false,
+        editModeName: false,
+        editModePassword: false,
+
     };
 
     activateEditMode = (mode) => {
@@ -61,20 +38,21 @@ class ProfileFrom extends React.Component {
                 this.setState( {
                     editModeEmail: false
                 });
-                console.log("mode1", this.props)
-                this.props.Changes(mode)
                 break;
 
             case "name":
                 this.setState( {
                     editMode: false
                 });
+
+                //this.props.updateStatus(this.state.status);
                 break;
 
             case "password":
                 this.setState( {
                     editMode: false
                 });
+
                 break;
 
             default:
@@ -106,50 +84,10 @@ class ProfileFrom extends React.Component {
                                 component={Input}/>
                         </div>
                         { this.props.error && <div className={sControls.formSummaryError}>{this.props.error}</div>}
-                        <button name={"emailButton"} className="button" onClick={ this.deactivateEditMode.bind(this, "email") } >Сonfirm changes</button>
+                        <button name={"emailButton"} className="button" >Сonfirm changes</button>
                     </div>
                 }
             </form>
         )
     };
 }
-//onClick={ this.deactivateEditMode.bind(this, "email") }
-
-const UpdateReduxForm =  reduxForm({form: 'update_user_data'})(ProfileFrom)
-
-export class ProfileUpdateData extends React.Component {
-    constructor(props) {
-        super(props);
-        
-        this.data = null;
-    }
-
-    onSubmit = (formData) => {
-        this.data = formData;
-        //this.props.updateData(this.props.name, this.data.email, this.data.password);
-    }
-
-    Changes = (mode) => {
-        if (mode === "email"){
-            this.props.updateData(this.props.name, this.data.email, this.data.password);
-        }
-    }
-
-    render () {
-        return (
-        <div>
-            <UpdateReduxForm onSubmit={this.onSubmit} Changes={this.Changes}  {...this.props}/>
-        </div>
-        )
-    };
-}
-
-let mapStateToProps = (state) => {
-    return {
-        id: state.profile.id,
-        name: state.profile.name,
-        email: state.profile.email,
-    }
-};
-
-export default compose(connect(mapStateToProps, {getUserData, updateData, updatePassword}), withAuthRedirect)(ProfileContainer);

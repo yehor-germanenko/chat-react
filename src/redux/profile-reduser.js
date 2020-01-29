@@ -38,7 +38,7 @@ export const updateProfileData = (name, email) => ({type: UPDATE_PROFILE_DATA, n
 
 export const getUserData = () => (dispatch) => {
     userAPI.getProfile().then(response => {
-        console.log(response)
+        console.log("getUserData", response)
         dispatch(setUserProfile(response.data.user));
     });
 }
