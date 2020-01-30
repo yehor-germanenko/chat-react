@@ -39,16 +39,17 @@ export const getAuthUserData = () => (dispatch) => {
 export const login = (email, password) => (dispatch) => {
     localStorage.setItem("token", "");
     authAPI.login(email, password)
-        .then(response => {
-            console.log(response)
-            if (response.data.resultCode === 0) {
-                localStorage.setItem("token", response.data.token);
-                dispatch(getAuthUserData());
-            } else {
-                let message = response.data.errors.length > 0 ? response.data.errors[0] : "Some error";
-                dispatch(stopSubmit("login", {_error: message}));
-            }
-        });
+    .then(response => {
+        console.log(response)
+        if (response.data.resultCode === 0) {
+            localStorage.setItem("token", response.data.token);
+            dispatch(getAuthUserData());
+        } else {
+            let message = response.data.errors.length > 0 ? response.data.errors[0] : "Some error";
+            dispatch(stopSubmit("login", {_error: message}));
+        }
+    });
+    
 }
 
 export const logout = () => (dispatch) => {
@@ -56,6 +57,7 @@ export const logout = () => (dispatch) => {
         .then(response => {
             if (response.data.resultCode === 0) {
                 dispatch(setAuthUserData(null, null, null, false));
+                localStorage.setItem("token", "");
             }
         });
 }
@@ -71,22 +73,6 @@ export const register = (name, email, password) => (dispatch) => {
                 dispatch(stopSubmit("register", {_error: message}));
 
             }
-        });
-}
-
-/*export const updateData = (name, email, password) => (dispatch) => {
-    authAPI.updateData(name, email, password)
-        .then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(getAuthUserData(name, email, password));
-            }
-        });
-}*/
-
-export const users = () => (dispatch) => {
-    authAPI.users()
-        .then(response => {
-            console.log(response)
         });
 }
 

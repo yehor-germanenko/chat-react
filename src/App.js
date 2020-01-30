@@ -3,16 +3,16 @@ import './App.css';
 import {Route} from "react-router-dom";
 import Login from './components/Login/Login'
 import Register from'./components/Register/Register'
-//import Test from './components/Test/Test'
 import Profile from './components/Profile/ProfileContainer';
-
+import Edit from './components/Profile/EditMode/EditModeContainer'
 
 const App = () => {
   return (
     <div className="app-wrapper">
       <Route exact path='/' render={ () => <Login /> }/>
-      <Route path='/profile/' render={ () => <Profile /> }/>
+      <Route exact path='/profile/' render={ () => <Profile /> }/>
       <Route exact path='/register/' render={ () => <Register /> }/>
+      <Route exact path ='/profile/edit/' render={() => <Edit /> } />
     </div>
   )
 }

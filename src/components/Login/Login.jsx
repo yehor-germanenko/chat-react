@@ -19,7 +19,7 @@ const LoginForm = (props) => {
           url: 'https://animals-chat.herokuapp.com/users',
           headers:     {
             "API-KEY": "3deb2104-0a97-4a6b-8b77-4ec1374c2ee9",
-            "Authorization" : "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE1ODAzOTE0MzB9.RoSye8s3xINXy7F6OklizMZrte0KlYiYM1dq0mzM6-A"
+            "Authorization" : "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODA0NzIyNDZ9.oCg9hb3XnT_xESERYfdgvo_xUr0PYks_qe_Swvuhxk4"
         }
         }).then( response => {console.log(response)});
     };

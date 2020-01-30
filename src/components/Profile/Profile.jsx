@@ -1,19 +1,22 @@
 import React from 'react';
 import s from "./Profile.module.css"
-/*import userPhoto from "../../assets/images/user.png"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-solid-svg-icons'*/
-import { ProfileUpdateData } from './ProfileContainer';
+import ProfileImg from '../../assets/images/user.png'
+import { NavLink } from 'react-router-dom';
 
 
 export default (props) => {
     return (
         <div className={s.profile}>
-            <ProfileUpdateData name={props.name} email={props.email} updateData={props.updateData} />
+            <div className={s.img}>
+                <img src={ProfileImg} alt=""/>
+            </div>
+             <div>
+                <div className={s.name}>Name: {props.name}</div>
+                <div className={s.email}>Email: {props.email}</div>
+            </div>
+            <div className={s.edit}>
+                <NavLink className="button" to={'profile/edit'}>Edit Profile</NavLink>
+            </div>
         </div>
     );
 }
-
-/*<div className={s.status}>
-                    <FontAwesomeIcon icon={faCircle} size="xs"/>Online
-                </div>*/

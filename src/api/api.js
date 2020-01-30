@@ -39,11 +39,7 @@ export const userAPI = {
         return instance.get(`profile` + id);
     },*/
 
-    updateProfile(name, email, password) {
-        return instance.patch(`profile/update`, {name, email, password});
-    },
-
-    updatePassword (password, newPassword) {
-        return instance.patch(`profile/password`, password, newPassword)
+    updateProfile(name, email, password, newPassword) {
+        return instance.patch(`profile/update`, {name, email, password, newPassword});
     }
 }

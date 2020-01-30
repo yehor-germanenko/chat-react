@@ -38,16 +38,19 @@ export const updateProfileData = (name, email) => ({type: UPDATE_PROFILE_DATA, n
 
 export const getUserData = () => (dispatch) => {
     userAPI.getProfile().then(response => {
-        console.log("getUserData", response)
+        console.log("getUserData")
         dispatch(setUserProfile(response.data.user));
     });
 }
 
-export const updateData = (name, email, password) => (dispatch) => {
-    userAPI.updateProfile(name, email, password).then( response =>{
+export const updateData = (name, email, password, newPassword = null) => (dispatch) => {
+    userAPI.updateProfile(name, email, password, newPassword).then( response =>{
+        console.log(name, email, password, newPassword)
         if (response.data.resultCode === 0) {
+            console.log("change email")
             dispatch(setUserProfile(name, email));
         } else {
+            console.log(response)
             let message = response.data.errors.length > 0 ? response.data.errors[0] : "Some error";
             dispatch(stopSubmit("update_user_data", {_error: message}));
         } 
