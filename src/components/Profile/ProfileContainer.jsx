@@ -11,10 +11,9 @@ class ProfileContainer extends React.Component {
         this.props.getUserData()
     }
 
-    /*componentDidUpdate(){
+    componentWillUpdate(){
         this.props.getUserData()
-    }*/
-
+    }
 
     render() {
         console.log("get", this.props);

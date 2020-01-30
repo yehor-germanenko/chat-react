@@ -33,7 +33,7 @@
 .form{
   width: 350px;
 }
-ы
+
 .fieldWrapper{
   width: 100%;
 }
@@ -46,7 +46,7 @@
   border-radius: 5px;
   margin: 15px 0;
   padding: 15px 10px;
-  color: #A0A0A0;
+  color: #000;
   font-size: 1em;
   transition: .3s;
   outline: none;

@@ -6,7 +6,8 @@ import {required, emailValid} from "../../../../utils/validators";
 import {Redirect} from "react-router-dom";
 
 
-const EditEmailForm = (props) => {
+const EditEmailNameForm = (props) => {
+    console.log(props)
     return(
         <form className="form" onSubmit={props.handleSubmit}>
             <div className="fieldWrapper">
@@ -14,7 +15,6 @@ const EditEmailForm = (props) => {
                     validate={[required]}
                     component={Input}/>
             </div>
-
             <div className="fieldWrapper">
                 <Field placeholder={"New email"} name={"email"}
                     validate={[required, emailValid]}
@@ -31,31 +31,36 @@ const EditEmailForm = (props) => {
     )
 }
 
-const EditEmailReduxForm =  reduxForm({form: 'update_user_data'})(EditEmailForm)
+const EditEmailNameReduxForm =  reduxForm({form: 'update_user_data'})(EditEmailNameForm)
 
 
-class EmailForm extends React.Component {
+class EmailNameForm extends React.Component {
     state = {
         redirect: false
     }
 
+    initialValues = {
+        name: this.props.name,
+        email: this.props.email
+    }
+
+    
+
     onSubmit = (formData) => {
-        console.log("updateData", formData.name, formData.email, formData.password)
         this.props.updateData(formData.name, formData.email, formData.password);
         //this.setState({ redirect: true })
     }
 
-
     render () {
-
+        
         if (this.state.redirect){
             return <Redirect to={"/profile"} />
         }
 
         return <div>
-            <EditEmailReduxForm onSubmit={this.onSubmit} {...this.props}/>
+            <EditEmailNameReduxForm onSubmit={this.onSubmit} initialValues={this.initialValues}/>
         </div>
     }
 }
 
-export default EmailForm;
+export default EmailNameForm;
