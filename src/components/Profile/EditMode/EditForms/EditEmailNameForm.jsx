@@ -49,7 +49,7 @@ class EmailNameForm extends React.Component {
 
     onSubmit = (formData) => {
         this.props.updateData(formData.name, formData.email, formData.password);
-        //this.setState({ redirect: true })
+        this.setState({ redirect: true })
     }
 
     render () {

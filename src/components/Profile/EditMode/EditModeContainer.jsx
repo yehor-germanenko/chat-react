@@ -15,6 +15,6 @@ let mapStateToProps = (state) => {
     }
 };
 
-export default compose(connect(mapStateToProps, {getUserData, updateData, updatePassword, deleteUser, logout}), withAuthRedirect)(EditMode);
+export default compose(connect(mapStateToProps, {getUserData, updateData, updatePassword, deleteUser, logout}))(EditMode);
 
 //withAuthRedirect

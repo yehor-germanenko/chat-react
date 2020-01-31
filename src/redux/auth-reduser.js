@@ -28,7 +28,6 @@ export const setAuthUserData = (userId, name, isAuth) => ({type: SET_USER_DATA, 
 export const getAuthUserData = () => (dispatch) => {
     authAPI.me()
         .then(response => {
-            console.log(response)
             if (response.data.resultCode === 0) {
                 let {id, name} = response.data.user;
                 dispatch(setAuthUserData(id, name, true));
@@ -36,11 +35,11 @@ export const getAuthUserData = () => (dispatch) => {
         });
 }
 
-export const login = (email, password) => (dispatch) => {
+export const login = (email, password, rememberMe = false) => (dispatch) => {
     localStorage.setItem("token", "");
-    authAPI.login(email, password)
+    authAPI.login(email, password, rememberMe)
     .then(response => {
-        console.log(response)
+        console.log("response", response)
         if (response.data.resultCode === 0) {
             localStorage.setItem("token", response.data.token);
             dispatch(getAuthUserData());
@@ -48,7 +47,7 @@ export const login = (email, password) => (dispatch) => {
             let message = response.data.errors.length > 0 ? response.data.errors[0] : "Some error";
             dispatch(stopSubmit("login", {_error: message}));
         }
-    });
+    }).catch(error => console.log(error));
     
 }
 

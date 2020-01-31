@@ -43,7 +43,7 @@ const profileReducer = (state = initialState, action) => {
 }
 
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
-export const updateProfileData = (name, email) => ({type: UPDATE_PROFILE_DATA, name, email});
+//export const updateProfileData = (name, email) => ({type: UPDATE_PROFILE_DATA, name, email});
 
 
 export const getUserData = () => (dispatch) => {
@@ -58,7 +58,7 @@ export const updateData = (name, email, password) => (dispatch) => {
         console.log(name, email, password)
         if (response.data.resultCode === 0) {
             console.log("change email")
-            dispatch(updateProfileData(name, email));
+            dispatch(setUserProfile(name, email));
         } else {
             console.log(response)
             let message = response.data.errors.length > 0 ? response.data.errors[0] : "Some error";
