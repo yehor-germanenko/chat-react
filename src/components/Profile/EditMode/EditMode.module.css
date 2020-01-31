@@ -6,3 +6,8 @@
     align-items: center;
     flex-direction: column;   
 }
+
+.deleteRed{
+    color: red;
+    cursor: pointer;
+}

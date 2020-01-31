@@ -8,7 +8,9 @@ import {Redirect} from "react-router-dom";
 import style from "../../common/FormsControls/FormsControls.module.css"
 import s from "./Register.module.css"
 
-const validLength = minMaxLengthCreator(6, 47);
+const validLengthPassword = minMaxLengthCreator(6, 47);
+const validLengthName = minMaxLengthCreator(3, 20);
+
 
 const RegisterForm = (props) => {
     return (
@@ -16,7 +18,7 @@ const RegisterForm = (props) => {
             <h1 className="header">Register</h1>
             <div className="fieldWrapper">
                 <Field placeholder={"Name"} name={"name"}
-                       validate={[required]}
+                       validate={[required, validLengthName]}
                        component={Input}/>
             </div>
             <div className="fieldWrapper">
@@ -26,7 +28,7 @@ const RegisterForm = (props) => {
             </div>
             <div className="fieldWrapper">
                 <Field placeholder={"Password"} name={"password"} type={"password"}
-                       validate={[required, validLength]}
+                       validate={[required, validLengthPassword]}
                        component={Input}/>
             </div>
             { props.error && <div className={style.formSummaryError}>

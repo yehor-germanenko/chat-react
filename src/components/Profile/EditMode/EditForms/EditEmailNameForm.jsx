@@ -2,9 +2,10 @@ import React from 'react'
 import sControls from "../../../../common/FormsControls/FormsControls.module.css";
 import {Field, reduxForm} from "redux-form";
 import {Input} from "../../../../common/FormsControls/FormsControls";
-import {required, emailValid} from "../../../../utils/validators";
+import {required, emailValid, minMaxLengthCreator} from "../../../../utils/validators";
 import {Redirect} from "react-router-dom";
 
+const validLengthName = minMaxLengthCreator(3, 20);
 
 const EditEmailNameForm = (props) => {
     console.log(props)
@@ -12,7 +13,7 @@ const EditEmailNameForm = (props) => {
         <form className="form" onSubmit={props.handleSubmit}>
             <div className="fieldWrapper">
             <Field placeholder={"New name"} name={"name"}
-                    validate={[required]}
+                    validate={[required, validLengthName]}
                     component={Input}/>
             </div>
             <div className="fieldWrapper">

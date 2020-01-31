@@ -15,7 +15,7 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 ...action.payload
-            }
+            } 
         default:
             return state;
     }
@@ -52,21 +52,13 @@ export const login = (email, password) => (dispatch) => {
     
 }
 
-export const logout = () => (dispatch) => {
-    authAPI.logout()
-        .then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(setAuthUserData(null, null, null, false));
-                localStorage.setItem("token", "");
-            }
-        });
-}
-
 export const register = (name, email, password) => (dispatch) => {
+    localStorage.setItem("token", "");
     authAPI.register(name, email, password)
         .then(response => {
             if (response.data.resultCode === 0) {
-                login(email, password);
+                localStorage.setItem("token", response.data.token);
+                dispatch(getAuthUserData());
             } else {
                 console.log(response);
                 let message = response.data.errors.length > 0 ? response.data.errors[0] : "Some error";
@@ -75,5 +67,9 @@ export const register = (name, email, password) => (dispatch) => {
             }
         });
 }
+
+export const logout = () => (dispatch) => dispatch(setAuthUserData(null, null, null, false))
+
+export const deleteUser = () => () => authAPI.deleteUser();
 
 export default authReducer;

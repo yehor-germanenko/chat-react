@@ -27,6 +27,10 @@ export const authAPI = {
 
     register(name, email, password){
         return instance.post(`users/create`, {name, email, password});
+    },
+
+    deleteUser() {
+        return instance.delete(`users/delete`);
     }
 }
 
@@ -35,11 +39,7 @@ export const userAPI = {
         return instance.get(`profile`);
     },
 
-    /*getUserProfile() {
-        return instance.get(`profile` + id);
-    },*/
-
-    updateProfile(name, email, password, newPassword) {
+    updateProfile(name, email, password, newPassword = null) {
         return instance.patch(`profile/update`, {name, email, password, newPassword});
     }
 }

@@ -11,15 +11,15 @@ class ProfileContainer extends React.Component {
         this.props.getUserData()
     }
 
-    componentWillUpdate(){
-        this.props.getUserData()
+    componentDidUpdate(prevProps){
+        if(prevProps !== this.props) {}
     }
 
     render() {
         console.log("get", this.props);
         return (
             <Profile id={this.props.id} name={this.props.name} 
-            email={this.props.email}/>
+            email={this.props.email} avatar={this.props.avatar} />
         )
     }
 }
@@ -29,6 +29,7 @@ let mapStateToProps = (state) => {
         id: state.profile.id,
         name: state.profile.name,
         email: state.profile.email,
+        avatar: state.profile.avatar
     }
 };
 

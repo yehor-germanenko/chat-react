@@ -6,13 +6,15 @@ import {required, minMaxLengthCreator, emailValid} from "../../../../utils/valid
 import {Redirect} from "react-router-dom";
 
 const validLength = minMaxLengthCreator(6, 47);
+const validLengthName = minMaxLengthCreator(3, 20);
 
 const EditPasswordForm = (props) => {
+
     return(
         <form className="form" onSubmit={props.handleSubmit}>
             <div className="fieldWrapper">
             <Field placeholder={"New name"} name={"name"}
-                    validate={[required]}
+                    validate={[required, validLengthName]}
                     component={Input}/>
             </div>
             <div className="fieldWrapper">
@@ -21,7 +23,7 @@ const EditPasswordForm = (props) => {
                     component={Input}/>
             </div>
             <div className="fieldWrapper">
-            <Field placeholder={"Old password"} name={"old_password"} type={"password"}
+            <Field placeholder={"Current password"} name={"old_password"} type={"password"}
                 validate={[required, validLength]}
                 component={Input}/>
             </div>
@@ -36,7 +38,7 @@ const EditPasswordForm = (props) => {
     )
 }
 
-const EditPasswordReduxForm =  reduxForm({form: 'update_user_data'})(EditPasswordForm);
+const EditPasswordReduxForm =  reduxForm({form: 'update_user_password'})(EditPasswordForm);
 
 class PasswordForm extends React.Component {
     state = {
@@ -49,7 +51,7 @@ class PasswordForm extends React.Component {
     }
 
     onSubmit = (formData) => {
-        this.props.updateData(formData.name, formData.email, formData.old_password, formData.new_password);
+        this.props.updatePassword(formData.name, formData.email, formData.old_password, formData.new_password);
         //this.setState({ redirect: true })
     }
 

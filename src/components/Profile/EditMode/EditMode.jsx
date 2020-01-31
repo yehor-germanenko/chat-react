@@ -13,7 +13,13 @@ export default class Edit extends React.Component {
         if (!this.passw) {
             this.setState({
                 passw: true
-            })}
+            })
+        }
+    }
+
+    deleteUser = () => {
+        this.props.deleteUser()
+        this.props.logout()
     }
 
     render (){
@@ -25,8 +31,9 @@ export default class Edit extends React.Component {
                 </div>
             }
             {this.state.passw && 
-                <PasswordForm name={this.props.name} email={this.props.email} updateData={this.props.updateData} />
+                <PasswordForm name={this.props.name} email={this.props.email} updatePassword={this.props.updatePassword} />
             }
+            <div className={s.deleteRed} onClick={this.deleteUser}>Delete Profile</div>
         </div>
         )
     }

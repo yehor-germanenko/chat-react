@@ -3,6 +3,7 @@ import EditMode from './EditMode'
 import withAuthRedirect from "../../../hoc/withAuthRedirect";
 import {connect} from 'react-redux';
 import {compose} from "redux";
+import {deleteUser, logout} from '../../../redux/auth-reduser'
 
 
 
@@ -14,6 +15,6 @@ let mapStateToProps = (state) => {
     }
 };
 
-export default compose(connect(mapStateToProps, {getUserData, updateData, updatePassword}), withAuthRedirect)(EditMode);
+export default compose(connect(mapStateToProps, {getUserData, updateData, updatePassword, deleteUser, logout}), withAuthRedirect)(EditMode);
 
 //withAuthRedirect

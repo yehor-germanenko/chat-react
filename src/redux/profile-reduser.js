@@ -8,7 +8,8 @@ const UPDATE_PROFILE_DATA = 'UPDATE_PROFILE_DATA';
 let initialState = {
     id: null,
     name: null,
-    email: null
+    email: null,
+    avatar: null
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -24,7 +25,16 @@ const profileReducer = (state = initialState, action) => {
             return {...state, 
                 id: action.profile.id,
                 name: action.profile.name,
-                email: action.profile.email 
+                email: action.profile.email,
+                avatar: action.profile.avatar
+            }
+        }
+
+        case UPDATE_PROFILE_DATA: {
+            return {
+                ...state,
+                name: action.profile.name,
+                email: action.profile.email
             }
         }
         default:
@@ -43,12 +53,12 @@ export const getUserData = () => (dispatch) => {
     });
 }
 
-export const updateData = (name, email, password, newPassword = null) => (dispatch) => {
-    userAPI.updateProfile(name, email, password, newPassword).then( response =>{
-        console.log(name, email, password, newPassword)
+export const updateData = (name, email, password) => (dispatch) => {
+    userAPI.updateProfile(name, email, password).then( response =>{
+        console.log(name, email, password)
         if (response.data.resultCode === 0) {
             console.log("change email")
-            dispatch(setUserProfile(name, email));
+            dispatch(updateProfileData(name, email));
         } else {
             console.log(response)
             let message = response.data.errors.length > 0 ? response.data.errors[0] : "Some error";
@@ -57,13 +67,19 @@ export const updateData = (name, email, password, newPassword = null) => (dispat
     })
 }
 
-export const updatePassword = (oldPassword, newPassword) => (dispatch) => {
-    userAPI.updatePassword(oldPassword, newPassword).then(response => {
-        if (!response.data.resultCode === 0) {
+export const updatePassword = (name, email, oldPassword, newPassword) => (dispatch) => {
+    userAPI.updateProfile(name, email, oldPassword, newPassword).then(response => {
+        if (response.data.resultCode === 0) {
+            console.log("change Password")
+            dispatch(setUserProfile(name, email));
+        } else {
+            console.log(response)
             let message = response.data.errors.length > 0 ? response.data.errors[0] : "Some error";
-            dispatch(stopSubmit("update_user_data", {_error: message}));
+            dispatch(stopSubmit("update_user_password", {_error: message}));
         }
     })
 }
+
+
 
 export default profileReducer;
