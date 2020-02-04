@@ -1,15 +1,18 @@
 import {userAPI} from "../api/api";
 import {stopSubmit} from "redux-form";
+import refreshToken from './refresh-token'
 
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 const UPDATE_PROFILE_DATA = 'UPDATE_PROFILE_DATA';
+const TOGGLE_GET_DATA_PROGRESS = 'TOGGLE_GET_DATA_PROGRESS';
 
 let initialState = {
     id: null,
     name: null,
     email: null,
-    avatar: null
+    avatar: null,
+    isFetching: false
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -37,49 +40,61 @@ const profileReducer = (state = initialState, action) => {
                 email: action.profile.email
             }
         }
+
+        case TOGGLE_GET_DATA_PROGRESS:
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
         default:
             return state;
     }
 }
 
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
+export const toggleGetProfileDataProgress = (isFetching) => ({type: TOGGLE_GET_DATA_PROGRESS, isFetching})
 //export const updateProfileData = (name, email) => ({type: UPDATE_PROFILE_DATA, name, email});
 
 
 export const getUserData = () => (dispatch) => {
     userAPI.getProfile().then(response => {
-        console.log("getUserData")
+        console.log("getUserData", response.data.user)
         dispatch(setUserProfile(response.data.user));
+        refreshToken();
     });
 }
 
-export const updateData = (name, email, password) => (dispatch) => {
+export const updateData = (name, email, password, Redirect) => (dispatch) => {
+    dispatch(toggleGetProfileDataProgress(true));
     userAPI.updateProfile(name, email, password).then( response =>{
-        console.log(name, email, password)
-        if (response.data.resultCode === 0) {
-            console.log("change email")
-            dispatch(setUserProfile(name, email));
-        } else {
-            console.log(response)
-            let message = response.data.errors.length > 0 ? response.data.errors[0] : "Some error";
-            dispatch(stopSubmit("update_user_data", {_error: message}));
-        } 
-    })
+        refreshToken();
+        console.log(name, email, password);
+        dispatch(toggleGetProfileDataProgress(false));
+        Redirect();
+        console.log("change email")
+        dispatch(setUserProfile(name, email));
+    }).catch(error => {
+        refreshToken();
+        dispatch(toggleGetProfileDataProgress(false));
+        let message = error.response.data.errors.length > 0 ? error.response.data.errors : "Some error";
+        dispatch(stopSubmit("update_user_data", {_error: message}));
+    });
 }
 
-export const updatePassword = (name, email, oldPassword, newPassword) => (dispatch) => {
+export const updatePassword = (name, email, oldPassword, newPassword, Redirect) => (dispatch) => {
+    dispatch(toggleGetProfileDataProgress(true));
     userAPI.updateProfile(name, email, oldPassword, newPassword).then(response => {
-        if (response.data.resultCode === 0) {
-            console.log("change Password")
-            dispatch(setUserProfile(name, email));
-        } else {
-            console.log(response)
-            let message = response.data.errors.length > 0 ? response.data.errors[0] : "Some error";
-            dispatch(stopSubmit("update_user_password", {_error: message}));
-        }
+        refreshToken();
+        dispatch(toggleGetProfileDataProgress(false));
+        Redirect();
+        console.log("change Password")
+        dispatch(setUserProfile(name, email));
+    }).catch(error => {
+        refreshToken();
+        dispatch(toggleGetProfileDataProgress(false));
+        let message = error.response.data.errors.length > 0 ? error.response.data.errors[0] : "Some error";
+        dispatch(stopSubmit("update_user_password", {_error: message}));
     })
 }
-
-
 
 export default profileReducer;

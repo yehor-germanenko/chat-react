@@ -50,9 +50,14 @@ class PasswordForm extends React.Component {
         email: this.props.email
     }
 
+    Redirect = () => {
+        this.setState({
+            redirect: true
+        })
+    }
+
     onSubmit = (formData) => {
-        this.props.updatePassword(formData.name, formData.email, formData.old_password, formData.new_password);
-        this.setState({ redirect: true })
+        this.props.updatePassword(formData.name, formData.email, formData.old_password, formData.new_password, this.Redirect);
     }
 
 

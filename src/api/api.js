@@ -1,44 +1,66 @@
 import * as axios from "axios";
 
-const token = localStorage.token;
+//const token = localStorage.token;
 
-const instance = axios.create({
+let createInstance = (token) =>{
+    return axios.create({
+        baseURL: 'https://animals-chat.herokuapp.com/',
+        headers:     {
+            "API-KEY": "3deb2104-0a97-4a6b-8b77-4ec1374c2ee9",
+            "Authorization" : "Bearer " + token
+        }
+    });
+}
+
+const instanceWithoutToken = axios.create({
     baseURL: 'https://animals-chat.herokuapp.com/',
     headers:     {
-        "API-KEY": "3deb2104-0a97-4a6b-8b77-4ec1374c2ee9",
-        "Authorization" : token
+        "API-KEY": "3deb2104-0a97-4a6b-8b77-4ec1374c2ee9"
     }
 });
 
-
 export const authAPI = {
     me() {
-        return instance.get(`auth/me`);
+        console.log("auth/me");
+        return createInstance(localStorage.token).get(`auth/me`);
     },
 
     login(email, password, rememberMe) {
-        return instance.post(`auth/login`, { email, password, rememberMe});
+        return instanceWithoutToken.post(`auth/login`, { email, password, rememberMe});
     },
     
     logout() {
-        return instance.delete(`auth/login`);
+        return createInstance(localStorage.token).delete(`auth/login`);
     },
 
     register(name, email, password){
-        return instance.post(`users/create`, {name, email, password});
+        return instanceWithoutToken.post(`users/create`, {name, email, password});
     },
 
     deleteUser() {
-        return instance.delete(`users/delete`);
+        return createInstance(localStorage.token).delete(`users/delete`);
+    },
+
+    refresh(){
+        console.log("localStorage.token", localStorage.token)
+        return createInstance(localStorage.token).post(`refresh`);
     }
 }
 
 export const userAPI = {
     getProfile() {
-        return instance.get(`profile`);
+        return createInstance(localStorage.token).get(`profile`);
     },
 
     updateProfile(name, email, password, newPassword = null) {
-        return instance.patch(`profile/update`, {name, email, password, newPassword});
+        return createInstance(localStorage.token).patch(`profile/update`, {name, email, password, newPassword});
     }
 }
+
+/*const instance = axios.create({
+    baseURL: 'https://animals-chat.herokuapp.com/',
+    headers:     {
+        "API-KEY": "3deb2104-0a97-4a6b-8b77-4ec1374c2ee9",
+        "Authorization" : "Bearer " + token
+    }
+});*/

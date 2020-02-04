@@ -4,8 +4,14 @@ import { NavLink } from 'react-router-dom';
 
 
 export default (props) => {
+
+    let logout = () =>{
+        props.logout();
+    }
+
     return (
         <div className={s.profile}>
+            <div>
             <div className={s.img}>
                 <img src={props.avatar} alt=""/>
             </div>
@@ -15,6 +21,10 @@ export default (props) => {
             </div>
             <div className={s.edit}>
                 <NavLink className="button" to={'profile/edit'}>Edit Profile</NavLink>
+            </div>
+            </div>
+            <div>
+                <button className="button" onClick={logout}>Log out</button>
             </div>
         </div>
     );

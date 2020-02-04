@@ -11,10 +11,11 @@ let mapStateToProps = (state) => {
     return {
         name: state.profile.name,
         email: state.profile.email,
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
+        isFetching: state.profile.isFetching
     }
 };
 
-export default compose(connect(mapStateToProps, {getUserData, updateData, updatePassword, deleteUser, logout}))(EditMode);
+export default compose(connect(mapStateToProps, {getUserData, updateData, updatePassword, deleteUser, logout}), withAuthRedirect)(EditMode);
 
 //withAuthRedirect

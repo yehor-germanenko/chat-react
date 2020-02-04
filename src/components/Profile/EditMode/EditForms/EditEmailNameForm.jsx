@@ -27,7 +27,7 @@ const EditEmailNameForm = (props) => {
                     component={Input}/>
             </div>
             { props.error && <div className={sControls.formSummaryError}>{props.error}</div>}
-            <button className="button" >Save</button>
+            <button className="button" disabled={props.isFetching}>Save</button>
         </form>
     )
 }
@@ -39,17 +39,21 @@ class EmailNameForm extends React.Component {
     state = {
         redirect: false
     }
+    
 
     initialValues = {
         name: this.props.name,
         email: this.props.email
     }
 
-    
+    Redirect = () => {
+        this.setState({
+            redirect: true
+        })
+    }
 
     onSubmit = (formData) => {
-        this.props.updateData(formData.name, formData.email, formData.password);
-        this.setState({ redirect: true })
+        this.props.updateData(formData.name, formData.email, formData.password, this.Redirect);
     }
 
     render () {
@@ -59,7 +63,7 @@ class EmailNameForm extends React.Component {
         }
 
         return <div>
-            <EditEmailNameReduxForm onSubmit={this.onSubmit} initialValues={this.initialValues}/>
+            <EditEmailNameReduxForm onSubmit={this.onSubmit} initialValues={this.initialValues} isFetching={this.props.isFetching} />
         </div>
     }
 }
