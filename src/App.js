@@ -16,7 +16,7 @@ const App = () => {
       <Route exact path='/register/' render={ () => <Register /> }/>
       <Route exact path ='/profile/edit/' render={() => <Edit /> } />
       
-      <ActionCableProvider url={"ssl://animals-chat.herokuapp.com/cable"}>
+      <ActionCableProvider url={"ws://animals-chat.herokuapp.com/cable"}>
         <Route exact path ='/dialogs' render={() => <Dialogs /> } />
       </ActionCableProvider>
     </div>
