@@ -1,0 +1,333 @@
+* {
+    font-family: "Source Sans Pro";
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+.Profile{
+    margin-right: 50px;
+    min-width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-child {
+    position: absolute;
+    font-family: "Source Sans Pro";
+    font-size: 15px;
+    left: 60%;
+    top: 45px;
+	display: none;
+    min-width: 65px;
+    padding: 10px 5px 10px 5px;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 0.5em;
+ 
+}
+
+.dropdown-child > * {
+    color: #ff6565;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-child {
+    display: block;
+}
+
+.Avatar-profile *  {
+    /* margin-right: 16px; */
+    width: 38px;
+    height: 38px;
+    border-radius: 50px;
+}
+
+.Chat-Room {
+    /* height: 30px; */
+    font-family: "Source Sans Pro";
+    font-size: 26px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: #43425d;
+    margin: 2vh 3vw;
+}
+
+.Chat {
+    display: flex;
+    margin: 4vh 3vw;
+    width: 94vw;
+    height: 83vh;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.04);
+    background-color: #f1f1f3;
+    position: relative;
+}
+
+.Selected {
+    background-color: #f5f6fa !important;
+}
+
+.All-Rooms {
+    height: 100%;
+    width: 25%;
+    min-width: 350px;
+    position: relative;
+}
+
+.Create-Room {
+    height: 90px;
+    cursor: pointer;
+    background-color: #43425d;
+    /* border-radius: 10px; */
+    /* margin: 3px 5px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Create-Room:active {
+    background-color: #2f2e50;
+}
+
+.Create-Room > * {
+    font-size: 20px;
+    font-family: "Source Sans Pro";
+    color: #ffffff;
+}
+
+.Room {
+    height: 80px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    margin: 2px;
+}
+
+.Room:hover {
+    background-color: #f5f6fa !important;
+}
+
+.Room-Avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+}
+
+.Room-Name {
+    /* width: 100px;
+    height: 24px; */
+    font-family: "Source Sans Pro";
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.72;
+    letter-spacing: normal;
+    text-align: left;
+    color: #4d4f5c;
+    padding-left: 10%;
+    white-space: pre;
+}
+
+.Invite {
+    display: flex;
+    align-items: center;
+}
+
+.Invite * {
+    margin: 0 10px;
+}
+
+.Invite input {
+    padding: 3px 5px;
+    height: 20px;
+    outline: none;
+    -moz-appearance: none;
+    resize: none;
+    overflow: auto;
+}
+
+.Invite-Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    border: solid 1px #43425d;
+}
+
+.Invite-Button > * {
+    padding: 10px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #4d4f5c;
+}
+
+.Invite-Button:active {
+    /* color: #2f2e50; */
+    border: solid 2px #2f2e50;
+    /* background-color: #2f2e50 !important; */
+}
+
+.Invite-Button:active a {
+    color: #2f2e50 !important;
+}
+
+#Right {
+    display: flex;
+    align-items: center;
+}
+
+#Right > * {
+    margin: 0 15px;
+}
+
+.Leave {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    border: solid 1px #ff8181;
+    cursor: pointer;
+}
+
+.Leave > * {
+    padding: 10px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #ff8181;
+}
+.Leave:active {
+    /* color: #2f2e50; */
+    border: solid 2px #ff6565;
+    /* background-color: #2f2e50 !important; */
+}
+
+.Leave:active a {
+    color: #ff6565 !important;
+}
+
+.Delete-Room {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    border: solid 1px #ff6565;
+    cursor: pointer;
+}
+
+.Delete-Room > * {
+    padding: 10px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #ff6565;
+}
+.Delete-Room:active {
+    /* color: #2f2e50; */
+    border: solid 2px red;
+    /* background-color: #2f2e50 !important; */
+}
+
+.Delete-Room:active a {
+    color: red !important;
+}
+
+.Room-Body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.Room-Hat {
+    height: 90px;
+    position: relative;
+    margin: 0 2px 1px 1px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Room-Hat > p {
+    font-size: 28px;
+    font-family: "Source Sans Pro";
+    margin: 2vw;
+}
+
+.Messages {
+    height: 65%;
+    background-color: #ffffff;
+    overflow: scroll;
+    overflow-x: hidden;
+    margin: 1px;
+}
+
+.Message {
+    display: flex;
+    align-items: center;
+    margin: 24px;
+}
+
+.Avatar-Message > * {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 15px;
+}
+
+.Text-Message {
+    border-radius: 1em 1em 1em 0;
+    background-color: #f5f6fa;
+}
+
+.Text-Message > * {
+    margin: 0;
+    padding: 9px 24px;
+}
+
+.My-Message > .Text-Message{
+    color: #ffffff;
+    background-color: #3b86ff;
+}
+
+.Input-Area {
+    width: 100%;
+    height: 157px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.Input-Area textarea {
+    padding: 20px;
+    font-size: 15px;
+    outline: none;
+    -moz-appearance: none;
+    resize: none;
+    overflow: auto;
+    color: #000000;
+    border-radius: 0.3em;
+    width: 90%;
+    height: 50%;
+    background-color: #f5f6fa;
+}
+
+.Input-Area textarea::placeholder {
+    color: #3b86ff;
+}
+
+.buttonClick{
+    cursor: pointer;
+}

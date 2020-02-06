@@ -57,6 +57,37 @@ export const userAPI = {
     }
 }
 
+
+export const chatAPI = {
+    addRoom(name) {
+        return createInstance(localStorage.token).post(`rooms`, {name});
+    },
+
+    addMessage(id, message) {
+        return createInstance(localStorage.token).post(`rooms/${id}/messages`, {message});
+    },
+
+    addUserToRoom(id, name) {
+        return createInstance(localStorage.token).post(`rooms/${id}/users/add`, {name});
+    },
+
+    RemoveUserFromRoom(id, name) {
+        return createInstance(localStorage.token).post(`/rooms/${id}/users/remove`, {name});
+    },
+    // New requests
+    getRooms() {
+        return createInstance(localStorage.token).get(`/rooms`);
+    },
+
+    getMessages(id){
+        return createInstance(localStorage.token).get(`/rooms/${id}/messages`);
+    },
+
+    /*deleteRoom(id){
+        return createInstance(localStorage.token).delete(`/rooms/${id}/delete`);
+    }*/
+}
+
 /*const instance = axios.create({
     baseURL: 'https://animals-chat.herokuapp.com/',
     headers:     {

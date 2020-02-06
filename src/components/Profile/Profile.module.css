@@ -1,7 +1,7 @@
-.img img{
+/*.img img{
     width: 100px;
     height: 100px;
-}
+}*/
 
 .profile{
     height: 100vh;
@@ -10,4 +10,46 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    color: #fff;
+}
+
+
+.body{
+    display: flex;
+    background-color: #43425d;
+    padding: 47px;
+    border-radius: 47px;
+}
+
+.img img{
+    border-radius: 50%;
+}
+
+.info{
+    margin-left: 80px;
+}
+
+.infoField{
+    font-size: 1.5em;
+}
+
+.item span{
+    color: #a3a0fb;
+}
+
+.logout{
+    margin-top: 200px;
+}
+
+.redLogout{
+    color: red;
+    cursor: pointer;
+}
+
+.button{
+    transition: 0.47s;
+}
+
+.button:hover{
+    color: #a3a0fb;
 }

@@ -1,5 +1,4 @@
 .app-wrapper{
-  background-image: url('./assets/images/background.jpg');
   background-position: center;
 }
 
@@ -65,4 +64,68 @@
 .checkboxWrapper span{
   font-size: 1em;
   color: #A0A0A0;
+}
+
+.Navbar {
+  width: 100vw;
+  height: 70px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.04);
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* align-content: space-around; */
+}
+
+.Logo {
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Logo img{
+  /* width: 40px; */
+  height: 40px;
+}
+
+.Logo p{
+  margin-left: 20px;
+  white-space: pre;
+  font-family: "Source Sans Pro";
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.Username {
+  font-family: "Source Sans Pro";
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  text-align: left;
+  color: #4d4f5c;
+  white-space: pre;
+}
+
+.Chevron{
+  width: 11px;
+  height: 7px;
+}
+
+.chevron::before {
+border-style: solid;
+border-width: 0.2em 0.2em 0 0;
+content: '';
+display: inline-block;
+height: 0.45em;
+left: 0.15em;
+position: relative;
+top: 0.15em;
+transform: rotate(135deg) scale(0.7);
+vertical-align: top;
+  width: 0.45em;
+  color: #a4afb7;
 }
