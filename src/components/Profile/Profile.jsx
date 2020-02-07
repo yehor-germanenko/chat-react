@@ -4,11 +4,6 @@ import { NavLink } from 'react-router-dom';
 
 
 export default (props) => {
-
-    let logout = () =>{
-        props.logout();
-    }
-
     return (
         <div className={s.profile}>
             <div className={s.body}>
@@ -28,7 +23,7 @@ export default (props) => {
                     <div className={s.item}> 
                         <span>
                             Email:
-                        </span> 
+                        </span>
                         <p>
                             {props.email}
                         </p>
@@ -37,9 +32,6 @@ export default (props) => {
                 <div className={s.edit}>
                     <NavLink className={s.button} to={'profile/edit'}>Edit Profile</NavLink>
                 </div>
-            </div>
-            <div className={s.logout}>
-                <p className={s.redLogout} onClick={logout}>Log out</p>
             </div>
         </div>
     );

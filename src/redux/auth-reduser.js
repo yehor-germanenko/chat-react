@@ -8,6 +8,7 @@ const TOGGLE_GET_AUTH_DATA_PROGRESS = 'TOGGLE_GET_AUTH_DATA_PROGRESS';
 let initialState = {
     userId: null,
     name: null,
+    avatar: null,
     isAuth: false,
     isFetching: false
 };
@@ -30,7 +31,7 @@ const authReducer = (state = initialState, action) => {
 }
 
 
-export const setAuthUserData = (userId, name, isAuth) => ({type: SET_USER_DATA, payload: {userId, name, isAuth}});
+export const setAuthUserData = (userId, name, avatar, isAuth) => ({type: SET_USER_DATA, payload: {userId, name, avatar, isAuth}});
 export const toggleGetAuthDataProgress = (isFetching) => ({type: TOGGLE_GET_AUTH_DATA_PROGRESS, isFetching})
 
 export const getAuthUserData = () => (dispatch) => {
@@ -38,8 +39,8 @@ export const getAuthUserData = () => (dispatch) => {
         authAPI.me().then(response => {
             refreshToken();
             console.log("succses", response)
-            let {id, name} = response.data.user;
-            dispatch(setAuthUserData(id, name, true));
+            let {id, name, avatar} = response.data.user;
+            dispatch(setAuthUserData(id, name, avatar, true));
         }).catch(error => {
             console.log(error.response)
         })

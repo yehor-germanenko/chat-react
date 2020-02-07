@@ -4,12 +4,13 @@
 }*/
 
 .profile{
-    height: 100vh;
+    height: calc(100vh - 70px);
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: -70px;
     color: #fff;
 }
 
@@ -35,15 +36,6 @@
 
 .item span{
     color: #a3a0fb;
-}
-
-.logout{
-    margin-top: 200px;
-}
-
-.redLogout{
-    color: red;
-    cursor: pointer;
 }
 
 .button{

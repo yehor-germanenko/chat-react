@@ -23,9 +23,9 @@ class NewUserToRoomForm extends React.Component {
     render() {
         return (
             <form className={s.Invite} onSubmit={this.handleSubmit} >
-                <input onChange={this.handleChange} type="text" name="invite" id="invite" placeholder="Username"/>
-                <div className="InviteButton">
-                    <input type="submit" />
+                <input onChange={this.handleChange} value={this.state.text} type="text" name="invite" id="invite" placeholder="Username"/>
+                <div className={s.InviteButton}>
+                    <input type="submit" value="+ Add people"/>
                 </div>
             </form>
 

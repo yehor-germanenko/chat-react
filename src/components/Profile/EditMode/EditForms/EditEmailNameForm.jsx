@@ -10,7 +10,7 @@ const validLengthName = minMaxLengthCreator(3, 20);
 const EditEmailNameForm = (props) => {
     console.log(props)
     return(
-        <form className="form" onSubmit={props.handleSubmit}>
+        <form className="form" onSubmit={props.handleSubmit} >
             <div className="fieldWrapper">
             <Field placeholder={"New name"} name={"name"}
                     validate={[required, validLengthName]}

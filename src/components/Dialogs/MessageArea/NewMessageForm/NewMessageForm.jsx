@@ -16,14 +16,14 @@ class NewMessageForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        this.setState({ text: "" });
         this.props.addMessage(this.state.roomId, this.state.text);
+        this.setState({ text: '' });
     };
 
     render() {
         return (
-            <form className={s.Input_Area} onSubmit={this.handleSubmit} >
-                <input onChange={this.handleChange} type="text" name="input" wrap="hard" maxLength={700} placeholder="Type your message here..." id="message-input"/>
+            <form className={s.InputArea} onSubmit={this.handleSubmit} >
+                <input onChange={this.handleChange} value={this.state.text} type="text" name="input" wrap="hard" placeholder="Type your message here..." />
             </form>
 
         )

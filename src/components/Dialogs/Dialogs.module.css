@@ -1,5 +1,9 @@
-* {
+.dialogs * {
     font-family: "Source Sans Pro";
+}
+
+button{
+    color: #fff;
 }
 
 a:visited {
@@ -19,9 +23,8 @@ a:visited {
     position: relative;
 }
 
-.dropdown-child {
+.dropdownchild {
     position: absolute;
-    font-family: "Source Sans Pro";
     font-size: 15px;
     left: 60%;
     top: 45px;
@@ -34,7 +37,7 @@ a:visited {
  
 }
 
-.dropdown-child > * {
+.dropdownchild > * {
     color: #ff6565;
     text-decoration: none;
 }
@@ -43,16 +46,15 @@ a:visited {
     display: block;
 }
 
-.Avatar-profile *  {
+.Avatarprofile *  {
     /* margin-right: 16px; */
     width: 38px;
     height: 38px;
     border-radius: 50px;
 }
 
-.Chat-Room {
+.ChatRoom {
     /* height: 30px; */
-    font-family: "Source Sans Pro";
     font-size: 26px;
     font-weight: normal;
     font-stretch: normal;
@@ -78,32 +80,67 @@ a:visited {
     background-color: #f5f6fa !important;
 }
 
-.All-Rooms {
-    height: 100%;
-    width: 25%;
-    min-width: 350px;
-    position: relative;
-}
-
-.Create-Room {
+.CreateRoom {
     height: 90px;
     cursor: pointer;
     background-color: #43425d;
-    /* border-radius: 10px; */
-    /* margin: 3px 5px; */
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
+    outline: none;
 }
 
-.Create-Room:active {
-    background-color: #2f2e50;
+.CreateRoomEdit {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.Create-Room > * {
+.CreateRoomEdit input {
+    outline: none;
+    width: 60%;
+    height: 30%;
+    margin-left: 5%;
+    padding: 5px 15px;
+    font-size: 15px;
+}
+
+.CreateRoom > * {
+    background: none;
+    outline: none;
+    border: none;
     font-size: 20px;
-    font-family: "Source Sans Pro";
     color: #ffffff;
+}
+
+.CreateRoom > button {
+    width: 100%;
+    height: 100%;
+}
+
+.Buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 20%;
+}
+
+.Buttons button {
+    height: 50%;
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.Buttons button:hover {
+    background-color: #37374e;
 }
 
 .Room {
@@ -124,10 +161,9 @@ a:visited {
     border-radius: 50px;
 }
 
-.Room-Name {
+.RoomName {
     /* width: 100px;
     height: 24px; */
-    font-family: "Source Sans Pro";
     font-size: 18px;
     font-weight: bold;
     font-stretch: normal;
@@ -158,7 +194,7 @@ a:visited {
     overflow: auto;
 }
 
-.Invite-Button {
+.InviteButton {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -166,21 +202,33 @@ a:visited {
     border: solid 1px #43425d;
 }
 
-.Invite-Button > * {
+.InviteButton > * {
     padding: 10px;
     font-size: 15px;
     text-decoration: none;
     color: #4d4f5c;
 }
 
-.Invite-Button:active {
+.InviteButton:active {
     /* color: #2f2e50; */
     border: solid 2px #2f2e50;
     /* background-color: #2f2e50 !important; */
 }
 
-.Invite-Button:active a {
+.InviteButton:active input {
     color: #2f2e50 !important;
+    
+}
+
+.InviteButton input{
+    background: none;
+    border: none;
+    overflow: hidden;
+    padding: 10px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #4d4f5c;
+    height: 100%;
 }
 
 #Right {
@@ -201,11 +249,16 @@ a:visited {
     cursor: pointer;
 }
 
-.Leave > * {
+.Leave button {
     padding: 10px;
     font-size: 15px;
     text-decoration: none;
     color: #ff8181;
+    background: none;
+    height: 100%;
+    outline: none;
+    border: none;
+
 }
 .Leave:active {
     /* color: #2f2e50; */
@@ -213,11 +266,11 @@ a:visited {
     /* background-color: #2f2e50 !important; */
 }
 
-.Leave:active a {
+.Leave:active button {
     color: #ff6565 !important;
 }
 
-.Delete-Room {
+.DeleteRoom {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -226,29 +279,41 @@ a:visited {
     cursor: pointer;
 }
 
-.Delete-Room > * {
+.DeleteRoom > * {
     padding: 10px;
     font-size: 15px;
     text-decoration: none;
     color: #ff6565;
 }
-.Delete-Room:active {
+.DeleteRoom:active {
     /* color: #2f2e50; */
     border: solid 2px red;
     /* background-color: #2f2e50 !important; */
 }
 
-.Delete-Room:active a {
+.DeleteRoom:active a {
     color: red !important;
 }
 
-.Room-Body {
-    width: 100%;
+.RoomBody {
+    width: 75%;
     height: 100%;
     position: relative;
 }
 
-.Room-Hat {
+.alternativeText{
+    width: 75%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #fff;
+}
+
+.RoomHat {
     height: 90px;
     position: relative;
     margin: 0 2px 1px 1px;
@@ -258,59 +323,65 @@ a:visited {
     align-items: center;
 }
 
-.Room-Hat > p {
+.RoomHat > p {
     font-size: 28px;
-    font-family: "Source Sans Pro";
     margin: 2vw;
 }
 
 .Messages {
-    height: 65%;
+    height: 80%;
     background-color: #ffffff;
     overflow: scroll;
     overflow-x: hidden;
     margin: 1px;
+    box-sizing: border-box;
 }
 
 .Message {
     display: flex;
     align-items: center;
     margin: 24px;
+    position: relative;
 }
 
-.Avatar-Message > * {
+.AvatarMessage > * {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin: 0 15px;
 }
 
-.Text-Message {
+.TextMessage {
     border-radius: 1em 1em 1em 0;
     background-color: #f5f6fa;
+    overflow-wrap: break-word;
 }
 
-.Text-Message > * {
-    margin: 0;
+.TextMessage > * {
+    margin: 1px;
     padding: 9px 24px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
-.My-Message > .Text-Message{
+.MyMessage > .TextMessage{
     color: #ffffff;
     background-color: #3b86ff;
 }
 
-.Input-Area {
+.InputArea {
     width: 100%;
-    height: 157px;
+    height: 70px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
+    box-sizing: border-box;
 }
 
-.Input-Area textarea {
+.InputArea input {
     padding: 20px;
     font-size: 15px;
     outline: none;
@@ -318,13 +389,16 @@ a:visited {
     resize: none;
     overflow: auto;
     color: #000000;
+    border: solid 1px gray;
     border-radius: 0.3em;
     width: 90%;
     height: 50%;
     background-color: #f5f6fa;
+    box-sizing: border-box;
+
 }
 
-.Input-Area textarea::placeholder {
+.InputArea input::placeholder {
     color: #3b86ff;
 }
 

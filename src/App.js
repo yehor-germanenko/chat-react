@@ -15,7 +15,7 @@ const App = () => {
       <Route exact path='/register' render={ () => <Register /> }/>
       <Route exact path='/profile' render={ () => <Profile /> }/>
       <Route exact path ='/profile/edit' render={() => <Edit /> } />
-      <Route exact path ='/dialogs/:roomId?' render={() => <Dialogs /> } />
+      <Route exact path ='/dialogs' render={() => <Dialogs /> } />
     </div>
   )
 }

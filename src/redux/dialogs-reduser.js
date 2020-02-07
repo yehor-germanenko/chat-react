@@ -47,8 +47,8 @@ export const addUserToRoom = (id, name) => (dispatch) => {
     });
 };
 
-export const RemoveUserFromRoom = (id) => (dispatch) => {
-    chatAPI.RemoveUserFromRoom(id).then(
+export const RemoveUserFromRoom = (id, name) => (dispatch) => {
+    chatAPI.RemoveUserFromRoom(id, name).then(
         //refreshToken()
         ).catch(error => {
         console.log(error.response.data.errors);
@@ -72,6 +72,7 @@ export const addRoom = (name) => (dispatch) => {
 };
 
 export const getRooms = () => (dispatch) => {
+    console.log("getRooms");
     chatAPI.getRooms().then(response => {
         dispatch(setAllRooms(response.data));
     }).catch(error => {

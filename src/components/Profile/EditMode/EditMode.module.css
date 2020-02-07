@@ -5,9 +5,36 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;   
+    
 }
 
 .deleteRed{
-    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    color: #ff6265;
     cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.deleteRed:hover {
+    background-color: #ff6565;
+    color: #43425d;
+}
+
+.editModeSingleForm{
+    background-color: #43425d;
+    padding: 47px 100px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.editModeSingleForm h1{
+    color: #fff;
 }

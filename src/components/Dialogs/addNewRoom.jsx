@@ -1,5 +1,5 @@
 import React from 'react'
-
+import s from './Dialogs.module.css'
 
 class AddRoom extends React.Component {
     state = {
@@ -13,11 +13,17 @@ class AddRoom extends React.Component {
         } );
     }
 
-    deactivateEditMode() {
+    save() {
         this.setState( {
             editMode: false
         } );
         this.props.addRoom(this.state.name);
+    }
+
+    deactivateEditMode () {
+        this.setState( {
+            editMode: false
+        });
     }
 
     onStatusChange = (e) => {
@@ -28,17 +34,18 @@ class AddRoom extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className={s.CreateRoom}>
                 {!this.state.editMode &&
-                    <div>
-                        <button className="button" onClick={ this.activateEditMode.bind(this) }>Add room</button>
-                    </div>
+                    <button onClick={ this.activateEditMode.bind(this) }><p>Create Room</p></button>
                 }
 
                 {this.state.editMode &&
-                    <div>
+                    <div className={s.CreateRoomEdit}>
                         <input onChange={this.onStatusChange} autoFocus={true} placeholder="Room name"/>
-                        <button className="button" onClick={ this.deactivateEditMode.bind(this) }>Save</button>
+                        <div className={s.Buttons}>
+                            <button onClick={ this.save.bind(this) }>Save</button>
+                            <button onClick={ this.deactivateEditMode.bind(this) }>Cansel</button>
+                        </div>
                     </div>
                 }
             </div>
