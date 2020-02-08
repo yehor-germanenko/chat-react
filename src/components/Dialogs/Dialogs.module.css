@@ -410,6 +410,9 @@ a:visited {
 }
 
 .RoomWrapper{
+    height: 100%;
+    width: 25%;
+    min-width: 350px;
     display: flex;
     flex-direction: column;
 }
