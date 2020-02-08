@@ -303,6 +303,9 @@ a:visited {
     width: 75%;
     height: 100%;
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .alternativeText{
@@ -333,7 +336,7 @@ a:visited {
 }
 
 .Messages {
-    height: 80%;
+    height: 100%;
     background-color: #ffffff;
     overflow-x: hidden;
     margin: 1px;
