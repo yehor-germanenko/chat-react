@@ -9,6 +9,7 @@ import s from './Dialogs.module.css'
 import MessageArea from './MessageArea/MessageArea'
 import { NavLink } from 'react-router-dom';
 import withAuthRedirect from '../../hoc/withAuthRedirect';
+import AddRoom from './addNewRoom';
 
 class DialogsContainer extends React.Component {
     state = {
@@ -58,8 +59,10 @@ class DialogsContainer extends React.Component {
                     </NavLink>
                 </div>
                 <div className={s.Chat}>
-                    <Rooms rooms={this.props.rooms} addRoom={this.addRoom} setCurrentRoom={this.props.setCurrentRoom} roomId={this.props.currentRoomId} />
-
+                    <div className={s.RoomWrapper}>
+                        <AddRoom addRoom={this.props.addRoom} />
+                        <Rooms rooms={this.props.rooms} addRoom={this.addRoom} setCurrentRoom={this.props.setCurrentRoom} roomId={this.props.currentRoomId} />
+                    </div>
                     {this.props.currentRoomId ? (
                         <MessageArea roomId={this.props.currentRoomId} getMessages={this.props.getMessages} 
                         RemoveUserFromRoom={this.props.RemoveUserFromRoom} addUserToRoom={this.props.addUserToRoom}

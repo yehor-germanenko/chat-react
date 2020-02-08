@@ -335,7 +335,6 @@ a:visited {
 .Messages {
     height: 80%;
     background-color: #ffffff;
-    overflow: scroll;
     overflow-x: hidden;
     margin: 1px;
     box-sizing: border-box;
@@ -408,4 +407,9 @@ a:visited {
 
 .buttonClick{
     cursor: pointer;
+}
+
+.RoomWrapper{
+    display: flex;
+    flex-direction: column;
 }
