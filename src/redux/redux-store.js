@@ -5,17 +5,20 @@ import dialogsReducer from "./dialogs-reduser";
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import profileReducer from './profile-reduser';
 
-let reducers = combineReducers({
+let reducerApp = combineReducers({
     auth: authReducer,
     profile: profileReducer,
     form: formReducer,
     dialogs: dialogsReducer
 })
 
-let store = createStore(reducers, applyMiddleware(thunkMiddleware));
+let rootReducer = (state, action) => {
+    if (action.type === 'LOGOUT') {
+        state = undefined;
+    }
+    return reducerApp(state, action)
+}
 
-window.store = store;
-
+let store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
 export default store;
-//profile: profileReducer,

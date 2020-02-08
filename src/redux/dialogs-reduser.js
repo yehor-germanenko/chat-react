@@ -93,6 +93,4 @@ export const deleteRoom = (id) => (dispatch) => {
     });
 }
 
-
-
 export default dialogsReducer;

@@ -345,7 +345,7 @@ a:visited {
 
 .Message {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     margin: 24px;
     position: relative;
 }

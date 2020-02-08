@@ -16,7 +16,7 @@ class DialogsContainer extends React.Component {
         timer: null
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.getRooms();
         let timerId = setInterval(() => this.props.getRooms(), 2000);
         this.setState({timer: timerId})

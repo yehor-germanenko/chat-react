@@ -1,9 +1,10 @@
 import {authAPI} from "../api/api";
 import {stopSubmit} from "redux-form";
-import refreshToken from './refresh-token'
+import refreshToken from './refresh-token';
 
 const SET_USER_DATA = 'SET_USER_DATA';
 const TOGGLE_GET_AUTH_DATA_PROGRESS = 'TOGGLE_GET_AUTH_DATA_PROGRESS';
+const LOGOUT = 'LOGOUT';
 
 let initialState = {
     userId: null,
@@ -32,7 +33,8 @@ const authReducer = (state = initialState, action) => {
 
 
 export const setAuthUserData = (userId, name, avatar, isAuth) => ({type: SET_USER_DATA, payload: {userId, name, avatar, isAuth}});
-export const toggleGetAuthDataProgress = (isFetching) => ({type: TOGGLE_GET_AUTH_DATA_PROGRESS, isFetching})
+export const toggleGetAuthDataProgress = (isFetching) => ({type: TOGGLE_GET_AUTH_DATA_PROGRESS, isFetching});
+export const logOut = () => ({type: LOGOUT})
 
 export const getAuthUserData = () => (dispatch) => {
     if (localStorage.getItem("token")){
@@ -75,7 +77,7 @@ export const register = (name, email, password) => (dispatch) => {
 }
 
 export const logout = () => (dispatch) => {
-    dispatch(setAuthUserData(null, null, null, false));
+    dispatch(logOut());
     localStorage.removeItem("token");
 }
 

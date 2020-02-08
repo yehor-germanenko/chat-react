@@ -16,7 +16,6 @@ let initialState = {
 };
 
 const profileReducer = (state = initialState, action) => {
-
     switch(action.type) {
         case SET_STATUS: {
             return {
@@ -52,7 +51,7 @@ const profileReducer = (state = initialState, action) => {
 }
 
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
-export const toggleGetProfileDataProgress = (isFetching) => ({type: TOGGLE_GET_DATA_PROGRESS, isFetching})
+export const toggleGetProfileDataProgress = (isFetching) => ({type: TOGGLE_GET_DATA_PROGRESS, isFetching});
 
 
 export const getUserData = () => (dispatch) => {
