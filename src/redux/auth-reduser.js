@@ -38,14 +38,11 @@ export const getAuthUserData = () => (dispatch) => {
     if (localStorage.getItem("token")){
         authAPI.me().then(response => {
             refreshToken();
-            console.log("succses", response)
             let {id, name, avatar} = response.data.user;
             dispatch(setAuthUserData(id, name, avatar, true));
         }).catch(error => {
             console.log(error.response)
         })
-    } else {
-        console.log("not working")
     }
 }
 
@@ -53,7 +50,6 @@ export const login = (email, password, rememberMe = false) => (dispatch) => {
     dispatch(toggleGetAuthDataProgress(true));
     authAPI.login(email, password, rememberMe).then(response => {
         localStorage.setItem("token", response.data.token);
-        console.log("token1", response.data.token);
         dispatch(toggleGetAuthDataProgress(false));
         dispatch(getAuthUserData());
     }).catch(error => {

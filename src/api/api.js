@@ -21,7 +21,6 @@ const instanceWithoutToken = axios.create({
 
 export const authAPI = {
     me() {
-        console.log("auth/me");
         return createInstance(localStorage.token).get(`auth/me`);
     },
 
@@ -42,7 +41,6 @@ export const authAPI = {
     },
 
     refresh(){
-        console.log("localStorage.token", localStorage.token)
         return createInstance(localStorage.token).post(`refresh`);
     }
 }

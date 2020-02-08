@@ -2,13 +2,11 @@
 .formControl.error textarea
 {
     border-color: red;
-    box-shadow: 0 0 5px red;
 }
 
 .formControl.error span
 {
     color: red;
-    margin-bottom: 2000px;
 }
 
 .formSummaryError {

@@ -16,7 +16,6 @@ class DialogsContainer extends React.Component {
     }
 
     componentWillMount() {
-        console.log(this.props)
         this.props.getRooms();
         let timerId = setInterval(() => this.props.getRooms(), 2000);
         this.setState({timer: timerId})
@@ -52,7 +51,6 @@ class DialogsContainer extends React.Component {
                                 <div onClick={this.logout}>Log Out</div>
                             </div>
                             <p className="Username">{this.props.userName}</p>
-                            <span className="chevron" />
                             <div className="Avatar-profile">
                                 <img src={this.props.avatar} alt="Logo" />
                             </div>
@@ -82,13 +80,9 @@ let mapStateToProps = (state) => {
         messages: state.dialogs.messages,
         currentRoomId: state.dialogs.currentRoomId,
         currentRoomName: state.dialogs.currentRoomName,
-        userName: state.auth.name,
-        avatar: state.auth.avatar
+        userName: (state.profile.name === null) ? state.auth.name : state.profile.name,
+        avatar: (state.profile.avatar === null) ? state.auth.avatar : state.profile.avatar
     }
 };
 
-export default compose(connect(mapStateToProps, {addUserToRoom, RemoveUserFromRoom, addMessage, addRoom, getRooms, getMessages, setCurrentRoom, logout}), withAuthRedirect)(DialogsContainer)
-
-
-//
-//withAuthRedirect
+export default compose(connect(mapStateToProps, {addUserToRoom, RemoveUserFromRoom, addMessage, addRoom, getRooms, getMessages, setCurrentRoom, logout}), withAuthRedirect)(DialogsContainer);

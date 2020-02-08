@@ -62,7 +62,6 @@ class PasswordForm extends React.Component {
 
 
     render () {
-        console.log("initialValues", this.initialValues)
 
         if (this.state.redirect){
             return <Redirect to={"/profile"} />

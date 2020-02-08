@@ -15,7 +15,6 @@ class LoginForm extends React.Component {
     }
     
     render () {
-        console.log(this.props.isFetching)
         return <form className="Main" onSubmit={this.props.handleSubmit}>
         <div className="Picture">
             <div className="LineGraph">
@@ -31,7 +30,7 @@ class LoginForm extends React.Component {
                 <p>Welcome Back, Please login to your account.</p>
             </div>
             <div className="Inputs">
-            <Field placeholder={"Email"} name={"email"}
+            <Field placeholder={"Email"} name={"email"} type={"email"}
                        validate={[required]}
                        component={Input}/><br/>
             <Field placeholder={"Password"} name={"password"} type={"password"}
@@ -46,7 +45,7 @@ class LoginForm extends React.Component {
                 {this.props.error}</div>}
                 </div>
                 <div className="LoginRegister">
-                <button disabled={this.props.isFetching} type="submit" name="login" className="Login">Login</button>
+                    <button disabled={this.props.isFetching} className="Login">Login</button>
                 <NavLink to="/register" className="SignUp">
                     SignUp
                 </NavLink>
@@ -62,7 +61,6 @@ const LoginReduxForm =  reduxForm({form: 'login'})(LoginForm)
 
 const Login = (props) => {
     const onSubmit = (formData) => {
-        console.log(formData)
         props.login(formData.email, formData.password, formData.rememberMe);
     }
 
@@ -79,32 +77,3 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, {login, getAuthUserData} )(Login);
-
-/*<div className="fieldWrapper">
-                <Field placeholder={"Email"} name={"email"}
-                       validate={[required]}
-                       component={Input}/>
-            </div>
-            <div className="fieldWrapper">
-                <Field placeholder={"Password"} name={"password"} type={"password"}
-                       validate={[required]}
-                       component={Input}/>
-            </div>
-            <div className={s.footerLogin}>
-                <div className={s.checkboxWrapper}>
-                    <Field component={Input} name={"rememberMe"} type={"checkbox"}/>
-                    <span>Remember me</span>
-                </div>
-                <div className={s.createNew}>
-                    <NavLink to="/register">
-                        Create new account
-                    </NavLink>
-                </div>
-            </div>
-            { this.props.error && <div className={sControls.formSummaryError}>
-                {this.props.error}
-            </div>
-            }
-            <div>
-                <button disabled={this.props.isFetching} className="button">Login</button>
-            </div>*/

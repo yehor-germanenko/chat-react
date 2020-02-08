@@ -17,7 +17,7 @@
   box-sizing: border-box;
   transition: .4s;
   cursor: pointer;
-  
+  outline: none;
 }
 
 .button:hover{
@@ -130,9 +130,9 @@ vertical-align: top;
 
 .Profile{
   margin-right: 50px;
-  min-width: 150px;
+  /*min-width: 150px;*/
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   cursor: pointer;
 }
@@ -170,6 +170,7 @@ display: none;
   width: 38px;
   height: 38px;
   border-radius: 50px;
+  margin-left: 10px;
 }
 
 .AllRooms {
@@ -186,7 +187,7 @@ display: none;
 }
 
 .Picture {
-  width: 50%;
+  width: 50vw;
   height: 100vh;
   background: rgb(36,35,72);
   /* background: linear-gradient(180deg, rgba(36,35,72,1) 0%, rgba(87,83,181,1) 100%); */
@@ -209,7 +210,7 @@ display: none;
 }
 
 .MainForm {
-  width: 55%;
+  width: 50vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -232,10 +233,14 @@ display: none;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 0.6;
+  line-height: 1;
   letter-spacing: 5px;
   text-align: center;
   color: #43425d;
+}
+
+.ChatName *{
+  margin: 0;
 }
 
 .Welcome {
@@ -248,6 +253,7 @@ display: none;
   letter-spacing: normal;
   text-align: center;
   color: #4d4f5c;
+  line-height: 1;
 }
 
 .Inputs {
@@ -255,16 +261,22 @@ display: none;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  
 }
 
-.Inputs input[type="text"], .Inputs input[type="password"] {/* input[type="text"], .Inputs input[type='password'] { */
+.Inputs > div{
+  width: 100%;
+  height: 100%;
+}
+
+.Inputs input:not([type="checkbox"]){
   width: 100%;
   height: 35px;
   padding: 0 7px;
   border-width: 0 0 3px 0;
   border-color: #f0f0f7;
   font-size: 15px;
+  margin-bottom: 7px;
+  box-sizing: border-box;
 }
 
 .Inputs input::placeholder {
@@ -292,7 +304,7 @@ display: none;
 }
 
 .RememberMe {
-  width: 115px;
+  width: 130px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -302,6 +314,13 @@ display: none;
   cursor: pointer;
   -moz-user-select: none;
   user-select: none;
+  white-space: pre;
+}
+
+.RememberMe div div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .LoginRegister {
@@ -332,6 +351,9 @@ display: none;
   outline: none;
   color: #4d4f5c;
   font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Login:active {
@@ -341,4 +363,33 @@ display: none;
 .SignUp:active {
   color: #2f2e50;
   border: solid 2px #2f2e50;
+}
+
+.SignUpButton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.ComeBack * {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: center;
+  color: #43425d;
+}
+
+.MainFormBodyRegister {
+  height: 55vh;
+  width: 45%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
 }

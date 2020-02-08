@@ -72,7 +72,6 @@ export const addRoom = (name) => (dispatch) => {
 };
 
 export const getRooms = () => (dispatch) => {
-    console.log("getRooms");
     chatAPI.getRooms().then(response => {
         dispatch(setAllRooms(response.data));
     }).catch(error => {
@@ -82,9 +81,9 @@ export const getRooms = () => (dispatch) => {
 
 export const getMessages = (id) => (dispatch) => {
     chatAPI.getMessages(id).then(response => {
-        console.log(response)
         dispatch(setMessages(response.data.message));
     }).catch(error => {
+        console.log(error.response.data.errors);
     });
 }
 
@@ -97,8 +96,3 @@ export const deleteRoom = (id) => (dispatch) => {
 
 
 export default dialogsReducer;
-
-
-//{id: "1", username: "Ruslan", avatar: "https://link_to_avatar", message: "test", created_at: "47.21391231.242.314.234hz"},
-
-//{id: 1, name: 'Hrak'}, {id: 2, name: 'Psina'}

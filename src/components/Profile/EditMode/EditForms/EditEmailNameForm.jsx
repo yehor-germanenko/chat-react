@@ -8,7 +8,6 @@ import {Redirect} from "react-router-dom";
 const validLengthName = minMaxLengthCreator(3, 20);
 
 const EditEmailNameForm = (props) => {
-    console.log(props)
     return(
         <form className="form" onSubmit={props.handleSubmit} >
             <div className="fieldWrapper">

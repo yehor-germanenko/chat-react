@@ -18,7 +18,6 @@ class ProfileContainer extends React.Component {
     logout = () => this.props.logout();
 
     render() {
-        console.log("get", this.props);
         return (
             <div>
                 <div className="Navbar">
@@ -32,10 +31,9 @@ class ProfileContainer extends React.Component {
                         <div className="dropdown-child">
                             <div onClick={this.logout}>Log Out</div>
                         </div>
-                        <p className="Username">{this.props.nameAuth}</p>
-                        <span className="chevron" />
+                        <p className="Username">{this.props.name}</p>
                         <div className="Avatar-profile">
-                            <img src={this.props.avatarAuth} alt="Logo" />
+                            <img src={this.props.avatar} alt="Logo" />
                         </div>
                     </div>
                 </div>
@@ -52,9 +50,6 @@ let mapStateToProps = (state) => {
         name: state.profile.name,
         email: state.profile.email,
         avatar: state.profile.avatar,
-
-        nameAuth: state.auth.name,
-        avatarAuth: state.auth.avatar,
     }
 };
 

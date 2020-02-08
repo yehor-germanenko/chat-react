@@ -53,12 +53,10 @@ const profileReducer = (state = initialState, action) => {
 
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const toggleGetProfileDataProgress = (isFetching) => ({type: TOGGLE_GET_DATA_PROGRESS, isFetching})
-//export const updateProfileData = (name, email) => ({type: UPDATE_PROFILE_DATA, name, email});
 
 
 export const getUserData = () => (dispatch) => {
     userAPI.getProfile().then(response => {
-        console.log("getUserData", response.data.user)
         dispatch(setUserProfile(response.data.user));
         refreshToken();
     });
@@ -68,10 +66,8 @@ export const updateData = (name, email, password, Redirect) => (dispatch) => {
     dispatch(toggleGetProfileDataProgress(true));
     userAPI.updateProfile(name, email, password).then( response =>{
         refreshToken();
-        console.log(name, email, password);
         dispatch(toggleGetProfileDataProgress(false));
         Redirect();
-        console.log("change email")
         dispatch(setUserProfile(name, email));
     }).catch(error => {
         refreshToken();
@@ -87,7 +83,6 @@ export const updatePassword = (name, email, oldPassword, newPassword, Redirect) 
         refreshToken();
         dispatch(toggleGetProfileDataProgress(false));
         Redirect();
-        console.log("change Password")
         dispatch(setUserProfile(name, email));
     }).catch(error => {
         refreshToken();
