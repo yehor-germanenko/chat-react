@@ -119,6 +119,7 @@ a:visited {
 .CreateRoom > button {
     width: 100%;
     height: 100%;
+    cursor: pointer;
 }
 
 .Buttons {
@@ -149,6 +150,7 @@ a:visited {
     display: flex;
     align-items: center;
     margin: 2px;
+    cursor: pointer;
 }
 
 .Room:hover {
@@ -200,6 +202,7 @@ a:visited {
     align-items: center;
     border-radius: 4px;
     border: solid 1px #43425d;
+    cursor: pointer;
 }
 
 .InviteButton > * {
@@ -207,6 +210,7 @@ a:visited {
     font-size: 15px;
     text-decoration: none;
     color: #4d4f5c;
+    cursor: pointer;
 }
 
 .InviteButton:active {
@@ -258,7 +262,7 @@ a:visited {
     height: 100%;
     outline: none;
     border: none;
-
+    cursor: pointer;
 }
 .Leave:active {
     /* color: #2f2e50; */

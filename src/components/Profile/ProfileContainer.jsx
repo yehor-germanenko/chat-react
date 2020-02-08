@@ -23,7 +23,7 @@ class ProfileContainer extends React.Component {
                 <div className="Navbar">
                     <NavLink to='/dialogs'>
                         <div className="Logo">
-                            <img src="https://img.icons8.com/cotton/2x/chat.png" alt="Logo" />
+                            <img src="https://www.pngkit.com/png/full/373-3738572_pictures-of-animals-animals-for-logo-png.png" alt="Logo" />
                             <p>Animal's Chat</p>
                         </div>
                     </NavLink>

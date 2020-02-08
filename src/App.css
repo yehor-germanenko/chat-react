@@ -178,6 +178,8 @@ display: none;
   width: 25%;
   min-width: 350px;
   position: relative;
+  overflow: auto;
+  overflow-x: hidden;
 }
 
 
