@@ -1,7 +1,5 @@
 import * as axios from "axios";
 
-//const token = localStorage.token;
-
 let createInstance = (token) =>{
     return axios.create({
         baseURL: 'https://animals-chat.herokuapp.com/',
@@ -41,6 +39,7 @@ export const authAPI = {
     },
 
     refresh(){
+        console.log("refresh");
         return createInstance(localStorage.token).post(`refresh`);
     }
 }
@@ -72,24 +71,12 @@ export const chatAPI = {
     RemoveUserFromRoom(id, name) {
         return createInstance(localStorage.token).post(`/rooms/${id}/users/remove`, {name});
     },
-    // New requests
+
     getRooms() {
         return createInstance(localStorage.token).get(`/rooms`);
     },
 
     getMessages(id){
         return createInstance(localStorage.token).get(`/rooms/${id}/messages`);
-    },
-
-    /*deleteRoom(id){
-        return createInstance(localStorage.token).delete(`/rooms/${id}/delete`);
-    }*/
-}
-
-/*const instance = axios.create({
-    baseURL: 'https://animals-chat.herokuapp.com/',
-    headers:     {
-        "API-KEY": "3deb2104-0a97-4a6b-8b77-4ec1374c2ee9",
-        "Authorization" : "Bearer " + token
     }
-});*/
+}

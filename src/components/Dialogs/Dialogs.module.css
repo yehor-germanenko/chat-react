@@ -419,3 +419,9 @@ a:visited {
     display: flex;
     flex-direction: column;
 }
+
+.inviteError{
+    text-align: center;
+    color: red;
+    font-size: 0.9em;
+}

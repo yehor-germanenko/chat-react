@@ -5,8 +5,7 @@ import {required} from "../../utils/validators";
 import {connect} from "react-redux";
 import {login, getAuthUserData} from "../../redux/auth-reduser";
 import {Redirect, NavLink} from "react-router-dom";
-import sControls from "../../common/FormsControls/FormsControls.module.css"
-//import s from "./Login.module.css"
+import sControls from "../../common/FormsControls/FormsControls.module.css";
 
 
 class LoginForm extends React.Component {

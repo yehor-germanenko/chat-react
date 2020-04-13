@@ -25,16 +25,61 @@
 }
 
 .editModeSingleForm{
+    display: flex;
+    flex-direction: column;
     background-color: #43425d;
     padding: 47px 100px;
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     box-sizing: border-box;
 }
 
 .editModeSingleForm h1{
+    text-align: center;
     color: #fff;
+}
+
+/*arrow*/
+
+.arrow {
+    cursor: pointer;
+    display: block;
+    width: 60px;
+    height: 60px;
+    transition: 0.2s;
+    border-radius: 50%;
+    float: left;
+}
+.arrow div {
+    position: relative;
+    top: 28px;
+    left: 14px;
+    width: 35px;
+    height: 6px;
+    background-color: #616197;
+    display: block;
+}
+
+.arrow:hover{
+    background-color: #37374e;
+}
+
+.arrow div::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 6px;
+    top: -5px;
+    left: -4px;
+    background-color: #616197;
+    transform: rotate(-45deg);
+}
+.arrow div::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 6px;
+    top: 5px;
+    left: -4px;
+    background-color: #616197;
+    transform: rotate(45deg);
 }

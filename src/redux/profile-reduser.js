@@ -56,14 +56,14 @@ export const toggleGetProfileDataProgress = (isFetching) => ({type: TOGGLE_GET_D
 
 export const getUserData = () => (dispatch) => {
     userAPI.getProfile().then(response => {
-        dispatch(setUserProfile(response.data.user));
         refreshToken();
+        dispatch(setUserProfile(response.data.user));
     });
 }
 
 export const updateData = (name, email, password, Redirect) => (dispatch) => {
     dispatch(toggleGetProfileDataProgress(true));
-    userAPI.updateProfile(name, email, password).then( response =>{
+    userAPI.updateProfile(name, email, password).then( () =>{
         refreshToken();
         dispatch(toggleGetProfileDataProgress(false));
         Redirect();
@@ -78,7 +78,7 @@ export const updateData = (name, email, password, Redirect) => (dispatch) => {
 
 export const updatePassword = (name, email, oldPassword, newPassword, Redirect) => (dispatch) => {
     dispatch(toggleGetProfileDataProgress(true));
-    userAPI.updateProfile(name, email, oldPassword, newPassword).then(response => {
+    userAPI.updateProfile(name, email, oldPassword, newPassword).then(() => {
         refreshToken();
         dispatch(toggleGetProfileDataProgress(false));
         Redirect();

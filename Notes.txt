@@ -88,5 +88,16 @@ let mapStateToProps = (state) => {
 export default compose(connect(mapStateToProps, {addUserToRoom, RemoveUserFromRoom, addMessage, addRoom, getRooms, getMessages, setCurrentRoom, logout}), withAuthRedirect)(DialogsContainer)
 
 
-//
+
 //withAuthRedirect
+
+
+/*deleteRoom(id){
+    return createInstance(localStorage.token).delete(`/rooms/${id}/delete`);
+}*/
+
+/*export const deleteRoom = (id) => () => {
+    chatAPI.deleteRoom(id).then().catch(error => {
+        console.log(error.response.data.errors);
+    });
+}*/

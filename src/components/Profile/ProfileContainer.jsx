@@ -9,15 +9,14 @@ import { NavLink } from 'react-router-dom';
 
 class ProfileContainer extends React.Component {
     componentDidMount(){
-        this.props.getUserData()
-    }
-    componentDidUpdate(){
+        //console.log("componentDidMount");
         this.props.getUserData()
     }
 
     logout = () => this.props.logout();
 
     render() {
+        console.log("render");
         return (
             <div>
                 <div className="Navbar">

@@ -1,4 +1,6 @@
 import {chatAPI} from "../api/api";
+import refreshToken from './refresh-token';
+import {reset, stopSubmit} from 'redux-form';
 
 const SET_ALL_ROOMS = 'SET_ALL_ROOMS';
 const SET_MESSAGES = 'SET_MESSAGES';
@@ -40,33 +42,35 @@ export const setCurrentRoom = (roomId, roomName) => ({type: SET_CURRENT_ROOM, ro
 
 
 export const addUserToRoom = (id, name) => (dispatch) => {
-    chatAPI.addUserToRoom(id, name).then(
-        //refreshToken()
-        ).catch(error => {
-        console.log(error.response.data.errors);
-    });
-};
-
-export const RemoveUserFromRoom = (id, name) => (dispatch) => {
-    chatAPI.RemoveUserFromRoom(id, name).then(
-        //refreshToken()
-        ).catch(error => {
-        console.log(error.response.data.errors);
-    });
-};
-
-export const addMessage = (id, message) => (dispatch) => {
-    chatAPI.addMessage(id, message).then(
-        //refreshToken()
-        ).catch(error => {
-        console.log(error.response.data.errors);
-    });
-};
-
-export const addRoom = (name) => (dispatch) => {
-    chatAPI.addRoom(name).then(response => {
-        //refreshToken()
+    chatAPI.addUserToRoom(id, name).then( response => {
+        refreshToken();
+        dispatch(reset("newUserToRoom"));
         }).catch(error => {
+        let message = error.response.data.errors.length > 0 ? error.response.data.errors[0] : "Some error";
+        dispatch(stopSubmit("newUserToRoom", {_error: message}));
+    });
+};
+
+export const RemoveUserFromRoom = (id, name) => () => {
+    chatAPI.RemoveUserFromRoom(id, name).then(
+        refreshToken()
+        ).catch(error => {
+        console.log(error.response.data.errors);
+    });
+};
+
+export const addMessage = (id, message) => () => {
+    chatAPI.addMessage(id, message).then(
+        refreshToken()
+        ).catch(error => {
+        console.log(error.response.data.errors);
+    });
+};
+
+export const addRoom = (name) => () => {
+    chatAPI.addRoom(name).then(
+        refreshToken()
+        ).catch(error => {
         console.log(error.response.data.errors);
     });
 };
@@ -83,12 +87,6 @@ export const getMessages = (id) => (dispatch) => {
     chatAPI.getMessages(id).then(response => {
         dispatch(setMessages(response.data.message));
     }).catch(error => {
-        console.log(error.response.data.errors);
-    });
-}
-
-export const deleteRoom = (id) => (dispatch) => {
-    chatAPI.deleteRoom(id).then().catch(error => {
         console.log(error.response.data.errors);
     });
 }

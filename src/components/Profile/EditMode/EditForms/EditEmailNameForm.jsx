@@ -3,7 +3,8 @@ import sControls from "../../../../common/FormsControls/FormsControls.module.css
 import {Field, reduxForm} from "redux-form";
 import {Input} from "../../../../common/FormsControls/FormsControls";
 import {required, emailValid, minMaxLengthCreator} from "../../../../utils/validators";
-import {Redirect} from "react-router-dom";
+import {Redirect, NavLink} from "react-router-dom";
+
 
 const validLengthName = minMaxLengthCreator(3, 20);
 

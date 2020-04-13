@@ -1,19 +1,19 @@
+/*import {connect} from 'react-redux';
+import Profile from './Profile';
+import withAuthRedirect from '../../hoc/withAuthRedirect';
+import {compose} from "redux";
 import React from 'react';
-import {NavLink} from "react-router-dom";
-import s from './Main.module.css';
-import '../../App.css';
+import {getUserData} from "../../redux/profile-reduser"
+import {logout, getAuthUserData} from '../../redux/auth-reduser'
+import { NavLink } from 'react-router-dom';
 
-let Main = () => {
+const Main = () => {
     return (
-    <div className="container">
-        <div className={s.main}>
-            <div className={s.buttons}>
-                <NavLink className={`${s.buttonMain} ${"button"}`} to={'/login'}>Login</NavLink>
-                <NavLink className={`${s.buttonMain} ${"button"}`} to={'/register'}>Register</NavLink>
-            </div>
-        </div>
-    </div>
-    );
+
+        
+    )
 }
 
-export default Main;
+export default Main*/
+
+//withAuthRedirect

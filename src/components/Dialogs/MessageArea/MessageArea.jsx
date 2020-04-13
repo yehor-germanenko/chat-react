@@ -48,6 +48,7 @@ class MessagesArea extends React.Component {
             <img src={message.avatar} alt="Avatar" />
           </div>
           <div className={s.TextMessage}>
+            {(this.props.userName !== message.username) &&  <h5>{message.username}</h5>}
             <p>{message.message}</p>
           </div>
         </div>)}

@@ -2,6 +2,7 @@ import React from 'react'
 import EmailNameForm from './EditForms/EditEmailNameForm'
 import PasswordForm from './EditForms/EditPasswordForm'
 import s from './EditMode.module.css'
+import { NavLink } from 'react-router-dom'
 
 export default class Edit extends React.Component {
 
@@ -25,6 +26,7 @@ export default class Edit extends React.Component {
     render (){
         return (<div className={s.editForm}>
             <div className={s.editModeSingleForm}>
+            <NavLink className={s.arrow} to={'/profile'}><div></div></NavLink>
             <h1>Edit Mode</h1>
                 {!this.state.passw && <div>
                     <EmailNameForm name={this.props.name} email={this.props.email} updateData={this.props.updateData} />

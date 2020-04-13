@@ -82,7 +82,7 @@ export const logout = () => (dispatch) => {
 }
 
 export const deleteUser = () => () => {
-    authAPI.deleteUser();
+    authAPI.deleteUser().catch(error =>{console.log(error.response)});
     logout();
 }
 
