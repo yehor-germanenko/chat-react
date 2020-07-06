@@ -101,3 +101,46 @@ export default compose(connect(mapStateToProps, {addUserToRoom, RemoveUserFromRo
         console.log(error.response.data.errors);
     });
 }*/
+
+
+
+
+/*<div className={s.RoomHat}>
+  <p>{this.props.roomName}</p>
+    <div id={s.Right}>
+      <NewUserToRoomForm addUserToRoom={this.props.addUserToRoom} roomId={this.props.roomId} />
+      <div className={s.Leave}>
+          <button onClick={RemoveUserFromRoom}>Leave from Room</button>
+      </div>
+  </div>
+</div>*/
+{/*<div class="dialogs__header-add-user-form">
+                <div class="dialogs__header-add-user-form-wrapper">
+                    <div class="dialogs__header-add-user-form-input space">
+                        <input type="text" placeholder="UserName"/>
+                    </div>
+                    <div class="dialogs__header-add-user-form-button space">
+                        <button type="submit">ADD</button>
+                    </div>
+                    <div class="pop-up-buttonX buttonX control-button space" id="buttonXAddUser">
+                        <span></span>
+                    </div>
+                </div>
+            </div>*/}
+
+
+{/*{ this.props.error && <div className={s.inviteError}>
+                {this.props.error}</div>}
+                <Field placeholder={"Username"} type={"text"} name={"text"} id="invite" component={Input}/>
+                <div className={s.InviteButton}>
+                    <button type="submit">+ Add people</button>
+                    <form onSubmit={this.props.handleSubmit} >
+                <div  class="dialogs__header-input-new-user dialogs__header-control-form-item">
+                    <Field placeholder={"UserName"} type={"text"} name={"text"} id="invite" component={Input}/>
+                </div>
+                <button class="dialogs__header-button-add-user dialogs__header-button dialogs__header-control-form-item" type="submit">Add User</button>
+            </form>
+        </div>*/}
+//<form className={s.InputArea} onSubmit={this.handleSubmit} >
+              //  <input onChange={this.handleChange} value={this.state.text} type="text" name="input" wrap="hard" placeholder="Type your message here..." autoComplete="off" />
+        //    </form>

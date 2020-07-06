@@ -28,22 +28,22 @@ class Header extends React.Component{
 
   render(){
     return(
-      <div class="dialogs__header">
-        <div onClick={this.props.toggleActiveClassRooms} class="dialogs__header-burger control-button" id="buttonBurger">
+      <div className="dialogs__header">
+        <div onClick={this.props.toggleActiveClassRooms} className="dialogs__header-burger control-button" id="buttonBurger">
             <span></span>
         </div>
-        <div class="dialogs__header-room-name">
+        <div className="dialogs__header-room-name">
           {this.props.roomName}
         </div>
-        <div class="dialogs__header-control-form">
+        <div className="dialogs__header-control-form">
           <NewUserToRoomForm activeAddUser={this.state.activeAddUser} addUserToRoom={this.props.addUserToRoom} roomId={this.props.roomId} toggleActiveAddUser={this.toggleActiveAddUser}/>
-          <div class="dialogs__header-settings-sm-menu-wrapper">
-            <div class="dialogs__header-settings control-button">
+          <div className="dialogs__header-settings-sm-menu-wrapper">
+            <div className="dialogs__header-settings control-button">
                 <span></span>
             </div>
-            <div class="dialogs__header-settings-sm-menu-buttons">
-                <button class="dialogs__header-button-sm-add-user" id="buttonAddUser" onClick={this.toggleActiveAddUser}>Add User</button>
-                <button onClick={this.RemoveUserFromRoom} class="dialogs__header-button-leave dialogs__header-button dialogs__header-control-item">Leave</button>
+            <div className="dialogs__header-settings-sm-menu-buttons">
+                <button className="dialogs__header-button-sm-add-user" id="buttonAddUser" onClick={this.toggleActiveAddUser}>Add User</button>
+                <button onClick={this.RemoveUserFromRoom} className="dialogs__header-button-leave dialogs__header-button dialogs__header-control-item">Leave</button>
             </div>
           </div>
         </div>
@@ -51,29 +51,6 @@ class Header extends React.Component{
   );
   }
 };
-
-/*<div className={s.RoomHat}>
-  <p>{this.props.roomName}</p>
-    <div id={s.Right}>
-      <NewUserToRoomForm addUserToRoom={this.props.addUserToRoom} roomId={this.props.roomId} />
-      <div className={s.Leave}>
-          <button onClick={RemoveUserFromRoom}>Leave from Room</button>
-      </div>
-  </div>
-</div>*/
-{/*<div class="dialogs__header-add-user-form">
-                <div class="dialogs__header-add-user-form-wrapper">
-                    <div class="dialogs__header-add-user-form-input space">
-                        <input type="text" placeholder="UserName"/>
-                    </div>
-                    <div class="dialogs__header-add-user-form-button space">
-                        <button type="submit">ADD</button>
-                    </div>
-                    <div class="pop-up-buttonX buttonX control-button space" id="buttonXAddUser">
-                        <span></span>
-                    </div>
-                </div>
-            </div>*/}
 
 export default Header;
 

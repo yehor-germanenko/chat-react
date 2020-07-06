@@ -9,7 +9,7 @@ class NewMessageForm extends React.Component {
         text: ''
     };
 
-    componentWillReceiveProps = nextProps => {
+    UNSAFE_componentWillReceiveProps = nextProps => {
         this.setState({ roomId: nextProps.roomId });
     };
     
@@ -29,8 +29,8 @@ class NewMessageForm extends React.Component {
 
     render() {
         return (
-            <div class="dialogs__input-message">
-                <form class="dialogs__input-message-wrapper" onSubmit={this.handleSubmit}>
+            <div className="dialogs__input-message">
+                <form className="dialogs__input-message-wrapper" onSubmit={this.handleSubmit}>
                     <input onChange={this.handleChange} value={this.state.text} type="text" name="input" wrap="hard" placeholder="Enter your message..." autoComplete="off" autoFocus/>
                     <button type="submit">
                         <img src={send} alt=""/>
@@ -40,9 +40,5 @@ class NewMessageForm extends React.Component {
         )
     }
 }
-
-//<form className={s.InputArea} onSubmit={this.handleSubmit} >
-              //  <input onChange={this.handleChange} value={this.state.text} type="text" name="input" wrap="hard" placeholder="Type your message here..." autoComplete="off" />
-        //    </form>
 
 export default NewMessageForm;

@@ -31,9 +31,9 @@ class DialogsContainer extends React.Component {
         return (
             <div className="Dialogs">
                 <Header/>
-                <div class="container">
-                    <div class="dialogs">
-                        <div class={this.state.activeRooms ? "dialogs__rooms dialogs__rooms_active" : "dialogs__rooms"}>
+                <div className="container">
+                    <div className="dialogs">
+                        <div className={this.state.activeRooms ? "dialogs__rooms dialogs__rooms_active" : "dialogs__rooms"}>
                             <AddRoom addRoom={this.props.addRoom} toggleActiveClassRooms={this.toggleActiveClassRooms}/>
                             <RoomsContainer toggleActiveClassRooms={this.toggleActiveClassRooms}/>
                         </div>

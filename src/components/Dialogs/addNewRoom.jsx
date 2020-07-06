@@ -34,24 +34,24 @@ class AddRoom extends React.Component {
 
     render() {
         return (
-            <div class="dialogs__create-room">
-                <form class={this.state.activeMobileEdit ? "dialogs__create-room-form dialogs__create-room-form_active" : "dialogs__create-room-form"} onSubmit={this.handleSubmit}>
-                    <div class="dialogs__create-room-wrapper">
-                        <div class="dialogs__create-room-input space">
+            <div className="dialogs__create-room">
+                <form className={this.state.activeMobileEdit ? "dialogs__create-room-form dialogs__create-room-form_active" : "dialogs__create-room-form"} onSubmit={this.handleSubmit}>
+                    <div className="dialogs__create-room-wrapper">
+                        <div className="dialogs__create-room-input space">
                             <input type="text" value={this.state.name} onChange={this.handleChange} placeholder="Enter room name"/>
                         </div>
-                        <div class="dialogs__create-room-button space">
+                        <div className="dialogs__create-room-button space">
                             <button type="submit">ADD</button>
                         </div>
-                        <div onClick={this.toggleActiveMobileEdit} class="pop-up-buttonX buttonX control-button space" id="buttonXCreateRoom">
+                        <div onClick={this.toggleActiveMobileEdit} className="pop-up-buttonX buttonX control-button space" id="buttonXCreateRoom">
                             <span></span>
                         </div>
                     </div>
                 </form>
-                <div class="dialogs__create-room-button-sm space" id="createRoomButton" onClick={this.toggleActiveMobileEdit}>
+                <div className="dialogs__create-room-button-sm space" id="createRoomButton" onClick={this.toggleActiveMobileEdit}>
                     Create room
                 </div>
-                <div onClick={this.props.toggleActiveClassRooms} class="dialogs__header-buttonX buttonX control-button space" id="buttonXRooms">
+                <div onClick={this.props.toggleActiveclassNameRooms} className="dialogs__header-buttonX buttonX control-button space" id="buttonXRooms">
                     <span></span>
                 </div>
             </div>
@@ -62,15 +62,15 @@ class AddRoom extends React.Component {
 export default AddRoom;
 
 
-/*<div className={s.CreateRoom}>
+/*<div classNameName={s.CreateRoom}>
     {!this.state.editMode &&
         <button onClick={ this.activateEditMode.bind(this) }><p>Create Room</p></button>
     }
 
     {this.state.editMode &&
-        <div className={s.CreateRoomEdit}>
+        <div classNameName={s.CreateRoomEdit}>
             <input onChange={this.onStatusChange} autoFocus={true} placeholder="Room name"/>
-            <div className={s.Buttons}>
+            <div classNameName={s.Buttons}>
                 <button onClick={ this.save.bind(this) }>Save</button>
                 <button onClick={ this.deactivateEditMode.bind(this) }>Cansel</button>
             </div>
