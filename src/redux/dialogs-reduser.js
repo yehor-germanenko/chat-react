@@ -13,18 +13,19 @@ let initialState = {
     currentRoomName: null
 };
 
+
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_ALL_ROOMS:
-            return {
-                ...state,
-                rooms: [...action.rooms]
-            };
+                return {
+                    ...state,
+                    rooms: [...action.rooms]
+                };
         case SET_MESSAGES:
-            return {
-                ...state,
-                messages: [...action.messages]
-            };
+                return {
+                    ...state,
+                    messages: [...action.messages]
+                };
         case SET_CURRENT_ROOM:
             return {
                 ...state,
@@ -55,7 +56,7 @@ export const RemoveUserFromRoom = (id, name) => () => {
     chatAPI.RemoveUserFromRoom(id, name).then(
         refreshToken()
         ).catch(error => {
-        console.log(error.response.data.errors);
+        console.log(error.response);
     });
 };
 
@@ -63,7 +64,7 @@ export const addMessage = (id, message) => () => {
     chatAPI.addMessage(id, message).then(
         refreshToken()
         ).catch(error => {
-        console.log(error.response.data.errors);
+        console.log(error.response);
     });
 };
 
@@ -71,7 +72,7 @@ export const addRoom = (name) => () => {
     chatAPI.addRoom(name).then(
         refreshToken()
         ).catch(error => {
-        console.log(error.response.data.errors);
+        console.log(error.response);
     });
 };
 
@@ -79,7 +80,7 @@ export const getRooms = () => (dispatch) => {
     chatAPI.getRooms().then(response => {
         dispatch(setAllRooms(response.data));
     }).catch(error => {
-        console.log(error.response.data.errors);
+        console.log(error);
     });
 }
 
@@ -87,7 +88,7 @@ export const getMessages = (id) => (dispatch) => {
     chatAPI.getMessages(id).then(response => {
         dispatch(setMessages(response.data.message));
     }).catch(error => {
-        console.log(error.response.data.errors);
+        console.log(error.response);
     });
 }
 

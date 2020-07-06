@@ -1,4 +1,4 @@
-.app-wrapper{
+  /* .app-wrapper{
   background-position: center;
 }
 
@@ -74,7 +74,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* align-content: space-around; */
 }
 
 .Logo {
@@ -130,7 +129,6 @@ vertical-align: top;
 
 .Profile{
   margin-right: 50px;
-  /*min-width: 150px;*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -166,7 +164,6 @@ display: none;
 }
 
 .Avatar-profile *  {
-  /* margin-right: 16px; */
   width: 38px;
   height: 38px;
   border-radius: 50px;
@@ -192,8 +189,6 @@ display: none;
   width: 50vw;
   height: 100vh;
   background: rgb(36,35,72);
-  /* background: linear-gradient(180deg, rgba(36,35,72,1) 0%, rgba(87,83,181,1) 100%); */
-  /* background-image: linear-gradient(40deg, #5c6ccd, #5753b5 100%); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -206,9 +201,7 @@ display: none;
 }
 
 .LineGraph img{
-  /* height: 50vh; */
   max-width: 80%;
-  /* max-height: 100%; */
 }
 
 .MainForm {
@@ -394,4 +387,29 @@ display: none;
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
+} */
+
+
+body{
+    height: 100%;
+    background-color: #F4F7FD;
+    font-family: "Source Sans Pro";
+}
+
+*{
+	margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.container{
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-right: 20px;
+    padding-left: 20px;
+    position: relative;
 }

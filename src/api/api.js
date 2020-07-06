@@ -69,6 +69,7 @@ export const chatAPI = {
     },
 
     RemoveUserFromRoom(id, name) {
+        console.log(name);
         return createInstance(localStorage.token).post(`/rooms/${id}/users/remove`, {name});
     },
 

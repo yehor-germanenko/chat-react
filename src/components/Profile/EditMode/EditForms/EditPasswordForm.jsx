@@ -11,29 +11,29 @@ const validLengthName = minMaxLengthCreator(3, 20);
 const EditPasswordForm = (props) => {
 
     return(
-        <form className="form" onSubmit={props.handleSubmit}>
-            <div className="fieldWrapper">
+        <form className="edit-form__form" onSubmit={props.handleSubmit}>
+            <div className="edit-form__form-input">
             <Field placeholder={"New name"} name={"name"}
                     validate={[required, validLengthName]}
-                    component={Input}/>
+                    component={Input} size="40"/>
             </div>
-            <div className="fieldWrapper">
+            <div className="edit-form__form-input">
             <Field placeholder={"New email"} name={"email"}
                     validate={[required, emailValid]}
-                    component={Input}/>
+                    component={Input} size="40"/>
             </div>
-            <div className="fieldWrapper">
+            <div className="edit-form__form-input">
             <Field placeholder={"Current password"} name={"old_password"} type={"password"}
                 validate={[required, validLength]}
-                component={Input}/>
+                component={Input} size="40"/>
             </div>
-            <div className="fieldWrapper">
+            <div className="edit-form__form-input">
             <Field placeholder={"New password"} name={"new_password"} type={"password"}
                 validate={[required, validLength]}
-                component={Input}/>
+                component={Input} size="40"/>
             </div>
             { props.error && <div className={sControls.formSummaryError}>{props.error}</div>}
-            <button className="button" >Save</button>
+            <button className="edit-form__button">Save</button>
         </form>
     )
 }

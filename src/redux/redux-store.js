@@ -4,12 +4,15 @@ import authReducer from "./auth-reduser";
 import dialogsReducer from "./dialogs-reduser";
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import profileReducer from './profile-reduser';
+import appReducer from './app-reduser'
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 let reducerApp = combineReducers({
     auth: authReducer,
     profile: profileReducer,
     form: formReducer,
-    dialogs: dialogsReducer
+    dialogs: dialogsReducer,
+    app: appReducer
 })
 
 let rootReducer = (state, action) => {
@@ -19,6 +22,8 @@ let rootReducer = (state, action) => {
     return reducerApp(state, action)
 }
 
-let store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
+
+let store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunkMiddleware)));
+window.store = store;
 
 export default store;

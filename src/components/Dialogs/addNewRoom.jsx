@@ -1,8 +1,84 @@
 import React from 'react'
-import s from './Dialogs.module.css'
+import "./Dialogs.scss"
 
 class AddRoom extends React.Component {
-    state = {
+    constructor(props){
+        super(props);
+        this.state = {
+            name: '',
+            activeMobileEdit: false
+        };
+        this.toggleActiveMobileEdit = this.toggleActiveMobileEdit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(e) {
+        e.preventDefault();
+        this.setState({name: e.target.value});
+    }
+    
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.addRoom(this.state.name);
+        this.toggleActiveMobileEdit();
+        this.setState({ name: '' });
+    }
+
+    toggleActiveMobileEdit(){
+        this.setState(state => ({
+            activeMobileEdit: !state.activeMobileEdit
+        }));
+    }
+
+
+    render() {
+        return (
+            <div class="dialogs__create-room">
+                <form class={this.state.activeMobileEdit ? "dialogs__create-room-form dialogs__create-room-form_active" : "dialogs__create-room-form"} onSubmit={this.handleSubmit}>
+                    <div class="dialogs__create-room-wrapper">
+                        <div class="dialogs__create-room-input space">
+                            <input type="text" value={this.state.name} onChange={this.handleChange} placeholder="Enter room name"/>
+                        </div>
+                        <div class="dialogs__create-room-button space">
+                            <button type="submit">ADD</button>
+                        </div>
+                        <div onClick={this.toggleActiveMobileEdit} class="pop-up-buttonX buttonX control-button space" id="buttonXCreateRoom">
+                            <span></span>
+                        </div>
+                    </div>
+                </form>
+                <div class="dialogs__create-room-button-sm space" id="createRoomButton" onClick={this.toggleActiveMobileEdit}>
+                    Create room
+                </div>
+                <div onClick={this.props.toggleActiveClassRooms} class="dialogs__header-buttonX buttonX control-button space" id="buttonXRooms">
+                    <span></span>
+                </div>
+            </div>
+        )
+    }
+}
+
+export default AddRoom;
+
+
+/*<div className={s.CreateRoom}>
+    {!this.state.editMode &&
+        <button onClick={ this.activateEditMode.bind(this) }><p>Create Room</p></button>
+    }
+
+    {this.state.editMode &&
+        <div className={s.CreateRoomEdit}>
+            <input onChange={this.onStatusChange} autoFocus={true} placeholder="Room name"/>
+            <div className={s.Buttons}>
+                <button onClick={ this.save.bind(this) }>Save</button>
+                <button onClick={ this.deactivateEditMode.bind(this) }>Cansel</button>
+            </div>
+        </div>
+    }
+</div>*/
+
+    /*state = {
         editMode: false,
         name: null
     }
@@ -11,16 +87,16 @@ class AddRoom extends React.Component {
         this.setState( {
             editMode: true
         } );
-    }
+    }*/
 
-    save() {
+    /*save() {
         this.setState( {
             editMode: false
         } );
         this.props.addRoom(this.state.name);
-    }
+    }*/
 
-    deactivateEditMode () {
+    /*deactivateEditMode () {
         this.setState( {
             editMode: false
         });
@@ -30,27 +106,4 @@ class AddRoom extends React.Component {
         this.setState({
             name: e.currentTarget.value
         });
-    }
-
-    render() {
-        return (
-            <div className={s.CreateRoom}>
-                {!this.state.editMode &&
-                    <button onClick={ this.activateEditMode.bind(this) }><p>Create Room</p></button>
-                }
-
-                {this.state.editMode &&
-                    <div className={s.CreateRoomEdit}>
-                        <input onChange={this.onStatusChange} autoFocus={true} placeholder="Room name"/>
-                        <div className={s.Buttons}>
-                            <button onClick={ this.save.bind(this) }>Save</button>
-                            <button onClick={ this.deactivateEditMode.bind(this) }>Cansel</button>
-                        </div>
-                    </div>
-                }
-            </div>
-        )
-    }
-}
-
-export default AddRoom;
+    }*/

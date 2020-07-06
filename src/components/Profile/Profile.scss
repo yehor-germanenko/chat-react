@@ -1,0 +1,139 @@
+@import "../../styles/variables";
+
+.profile{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 0;
+
+    &__body{
+        background-color: $purple;
+        display: flex;
+        padding: 50px;
+        border-radius: 30px;
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.04);
+        margin: 0 10px;
+        max-width: 1500px;
+    }
+
+    &__avatar img{
+        border-radius: 70px;
+    }
+
+    &__info{
+        margin-left: 50px;
+        color: $white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;  
+
+        &-name{
+            font-size: 1.8em;
+        }
+
+        &-item{
+            margin-top: 30px;
+
+            & span{
+                color: #43425D;
+                font-size: 1.3em;
+            }
+
+            & p{
+                margin-top: 10px;
+                font-size: 1.25em;
+            }
+        }
+    }
+
+    &__buttons{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        font-size: 1.2em;
+
+        & a{
+            color: $white;
+            transition: 0.3s;
+
+            &:hover{
+                color: #43425D;
+            }
+        }
+
+        & div{
+            color: #CA565E;
+            background-color: $purple;
+            padding: 5px;
+            border-radius: 5px;
+            transition: 0.3s;
+            cursor: pointer;
+
+            &:hover{
+                color: #43425D;
+                background-color: $danger-red;
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 990px){
+    .profile{
+
+        &__body{
+            padding: 30px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .profile{
+        
+        &__body{
+            flex-direction: column;
+        }
+
+        &__info{
+            &-name{
+                margin-top: 5px;
+            }
+            &-item{
+                margin-top: 20px;
+            }
+        }
+
+        &__buttons{
+            margin-top: 10px;
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+}
+
+@media (max-width: 370px) {
+    .profile{
+        &__avatar{
+            display: flex;
+            justify-content: center;
+            & img{
+                width:250px;
+            }
+        } 
+        &__body{
+            padding: 10px;
+        }
+    }
+}
+
+
+
+/*
+*/

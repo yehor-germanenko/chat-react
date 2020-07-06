@@ -4,30 +4,31 @@ import {Field, reduxForm} from "redux-form";
 import {Input} from "../../../../common/FormsControls/FormsControls";
 import {required, emailValid, minMaxLengthCreator} from "../../../../utils/validators";
 import {Redirect, NavLink} from "react-router-dom";
+import "../EditMode.scss";
 
 
 const validLengthName = minMaxLengthCreator(3, 20);
 
 const EditEmailNameForm = (props) => {
     return(
-        <form className="form" onSubmit={props.handleSubmit} >
-            <div className="fieldWrapper">
+        <form className="edit-form__form" onSubmit={props.handleSubmit} >
+            <div className="edit-form__form-input">
             <Field placeholder={"New name"} name={"name"}
                     validate={[required, validLengthName]}
-                    component={Input}/>
+                    component={Input} size="40"/>
             </div>
-            <div className="fieldWrapper">
+            <div className="edit-form__form-input">
                 <Field placeholder={"New email"} name={"email"}
                     validate={[required, emailValid]}
-                    component={Input}/>
+                    component={Input} size="40"/>
             </div>
-            <div className="fieldWrapper">
+            <div className="edit-form__form-input">
                 <Field placeholder={"password"} name={"password"} type={"password"}
                     validate={[required]}
-                    component={Input}/>
+                    component={Input} size="40"/>
             </div>
             { props.error && <div className={sControls.formSummaryError}>{props.error}</div>}
-            <button className="button" disabled={props.isFetching}>Save</button>
+            <button className="edit-form__button" disabled={props.isFetching}>Save</button>
         </form>
     )
 }

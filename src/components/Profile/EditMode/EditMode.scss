@@ -1,0 +1,144 @@
+@import "../../../styles/variables";
+
+.edit-form{
+    padding: 50px;
+    background-color: $purple;
+    border-radius: 10px;
+    color: $white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+
+
+    &__wrapper{
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    & h1{
+        margin-bottom: 30px;
+    }
+
+    &__back-button{
+        cursor: pointer;
+        display: block;
+        width: 60px;
+        height: 60px;
+        transition: 0.2s;
+        border-radius: 10px;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        &:hover{
+            background-color: #43425D;
+        }
+
+        & span {
+            position: relative;
+            top: 28px;
+            left: 14px;
+            width: 35px;
+            height: 6px;
+            background-color: $white;
+            display: block;
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 6px;
+                top: -5px;
+                left: -4px;
+                background-color: $white;
+                transform: rotate(-45deg);
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 6px;
+                top: 5px;
+                left: -4px;
+                background-color: $white;
+                transform: rotate(45deg);
+            }            
+        }
+    }
+
+    &__form{
+        margin-top: 20px;
+
+        &-input{
+            margin-top: 10px;
+            & input{
+                display: block;
+                width: 100%;
+                border: none;
+                padding: 10px 5px;
+                font-size: 1em;
+                transition: .3s;
+                outline: none;
+                box-sizing: border-box;
+                color: #8A8A8B;
+                background-color: #F7F8F9;
+                border: 2px solid #F7F8F9;
+                transition: 0.3s;
+                border-radius: 5px;
+                //resize: vertical;
+    
+                &::placeholder{
+                    color: #CCCCCD;
+                }
+    
+                &:focus{
+                    border-bottom: 2px solid $purple;
+                }
+            }
+        }
+        
+        
+    }
+
+    &__button{
+        margin-top: 10px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background-color: $purple;
+        font-size: 1.1em;
+        width: 100%;
+        height: 50px;
+        border-radius: 5px;
+        box-sizing: border-box;
+        transition: .3s;
+        cursor: pointer;
+        outline: none;
+
+        &:hover{
+            background-color: #43425D;
+        }
+    }
+
+    &__delete-profile-button{
+        color: #CA565E;
+
+        &:hover{
+            color: #43425D;
+            background-color: #CA565E;
+        }
+    }
+}
+
+@media (max-width: 576px){
+    .edit-form{
+        padding: 25px;
+    }
+}

@@ -3,6 +3,7 @@ import EmailNameForm from './EditForms/EditEmailNameForm'
 import PasswordForm from './EditForms/EditPasswordForm'
 import s from './EditMode.module.css'
 import { NavLink } from 'react-router-dom'
+import './EditMode.scss';
 
 export default class Edit extends React.Component {
 
@@ -19,24 +20,26 @@ export default class Edit extends React.Component {
     }
 
     deleteUser = () => {
-        this.props.deleteUser()
-        this.props.logout()
+        this.props.deleteUser();
+        this.props.logout();
     }
 
     render (){
-        return (<div className={s.editForm}>
-            <div className={s.editModeSingleForm}>
-            <NavLink className={s.arrow} to={'/profile'}><div></div></NavLink>
-            <h1>Edit Mode</h1>
-                {!this.state.passw && <div>
-                    <EmailNameForm name={this.props.name} email={this.props.email} updateData={this.props.updateData} />
-                    <button className="button" onClick={this.addPasssw}>Change password</button>
-                    </div>
-                }
-                {this.state.passw && 
-                    <PasswordForm name={this.props.name} email={this.props.email} updatePassword={this.props.updatePassword} />
-                }
-            <div className={s.deleteRed} onClick={this.deleteUser}>Delete Profile</div>
+        return (<div className="edit-form__wrapper">
+            <div className="edit-form">
+                <NavLink className="edit-form__back-button" to={'/profile'}>
+                    <span></span>
+                </NavLink>
+                <h1>Edit Mode</h1>
+                    {!this.state.passw && <div>
+                        <EmailNameForm name={this.props.name} email={this.props.email} updateData={this.props.updateData} />
+                        <button className="edit-form__button" onClick={this.addPasssw}>Change password</button>
+                        </div>
+                    }
+                    {this.state.passw && 
+                        <PasswordForm name={this.props.name} email={this.props.email} updatePassword={this.props.updatePassword} />
+                    }
+                <div className="edit-form__delete-profile-button edit-form__button" onClick={this.deleteUser}>Delete Profile</div>
             </div>
         </div>
         )
