@@ -1,8 +1,7 @@
-import React from 'react'
-import EmailNameForm from './EditForms/EditEmailNameForm'
-import PasswordForm from './EditForms/EditPasswordForm'
-import s from './EditMode.module.css'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
+import EmailNameForm from './EditForms/EditEmailNameForm';
+import PasswordForm from './EditForms/EditPasswordForm';
+import { NavLink } from 'react-router-dom';
 import './EditMode.scss';
 
 export default class Edit extends React.Component {

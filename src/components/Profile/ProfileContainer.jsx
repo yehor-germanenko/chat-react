@@ -5,7 +5,6 @@ import {compose} from "redux";
 import React from 'react';
 import {getUserData} from "../../redux/profile-reduser"
 import {logout, getAuthUserData} from '../../redux/auth-reduser'
-import { NavLink } from 'react-router-dom';
 import Header from '../Header/Header';
 
 class ProfileContainer extends React.Component {

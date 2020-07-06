@@ -12,7 +12,6 @@ class NewUserToRoomForm extends React.Component {
     };
 
     render() {
-        console.log(this.props)
         return (
             <div class={this.props.activeAddUser ? "dialogs__header-add-user dialogs__header-add-user_active" : "dialogs__header-add-user"}>
                 <form onSubmit={this.props.handleSubmit}>
@@ -39,7 +38,7 @@ const NewUserToRoom = (props) => {
         props.addUserToRoom(props.roomId, formData.text);
     }
 
-    return (<NewUserToRoomReduxForm onSubmit={onSubmit} roomId={props.roomId} activeAddUser={props.activeAddUser} toggleActiveAddUser={props.toggleActiveAddUser}/>)
+    return <NewUserToRoomReduxForm onSubmit={onSubmit} roomId={props.roomId} activeAddUser={props.activeAddUser} toggleActiveAddUser={props.toggleActiveAddUser}/>
 }
 
 {/*{ this.props.error && <div className={s.inviteError}>

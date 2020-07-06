@@ -20,7 +20,6 @@ class App extends React.Component{
 
   render () {
     if (!this.props.initialized) {
-      console.log("initialized " + this.props.initialized);
       return <Preloader/>
     }
 

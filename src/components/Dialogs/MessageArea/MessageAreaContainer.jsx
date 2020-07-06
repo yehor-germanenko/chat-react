@@ -1,16 +1,14 @@
 import {connect} from 'react-redux';
 import {compose} from 'redux';
-import {addUserToRoom, RemoveUserFromRoom, addMessage, addRoom, 
+import {addUserToRoom, RemoveUserFromRoom, addMessage,
 getRooms, getMessages, setCurrentRoom} from '../../../redux/dialogs-reduser';
-import { getRoomsSelector, getMessagesSelector } from '../../../redux/dialogs-selectors';
+import { getMessagesSelector } from '../../../redux/dialogs-selectors';
 import React from 'react';
 import NewMessageForm from './NewMessageForm/NewMessageForm'
-import NewUserToRoomForm from './NewUserToRoomForm/NewUserToRoomForm'
 import  '../Dialogs.scss'
-import ScrollToBottom from 'react-scroll-to-bottom';
 import Header from './Header'
 import MessagesArea from './MessageArea';
-import ArraysObjectsComparing from '../../../common/ArraysObjectsComparing/ArraysObjectsComparing'
+//import ArraysObjectsComparing from '../../../common/ArraysObjectsComparing/ArraysObjectsComparing'
 
 
 class MessagesAreaContainer extends React.Component {
@@ -32,7 +30,6 @@ class MessagesAreaContainer extends React.Component {
 
 
   render () {
-    console.log("render message area")
     return(
     <div className="dialogs__message-area">
         <Header

@@ -3,13 +3,11 @@ import '../Dialogs.scss'
 
 let Rooms = (props) => {
     let setRoom = (r, e) =>{
-        console.log("inRoom")
         e.preventDefault();
         props.setCurrentRoom(r.id, r.name);
         props.toggleActiveClassRooms();
     }
     
-    //console.log("room");
     return(
         
         <div className="dialogs__rooms-container">

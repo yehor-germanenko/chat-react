@@ -27,7 +27,6 @@ class Header extends React.Component{
   }
 
   render(){
-    console.log("header " + this.props.roomId)
     return(
       <div class="dialogs__header">
         <div onClick={this.props.toggleActiveClassRooms} class="dialogs__header-burger control-button" id="buttonBurger">

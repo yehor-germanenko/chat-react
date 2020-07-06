@@ -4,7 +4,7 @@ import {compose} from "redux";
 import {setCurrentRoom, getRooms} from '../../../redux/dialogs-reduser';
 import Rooms from './Rooms';
 import { getRoomsSelector } from '../../../redux/dialogs-selectors';
-import ArraysObjectsComparing from "../../../common/ArraysObjectsComparing/ArraysObjectsComparing"
+//import ArraysObjectsComparing from "../../../common/ArraysObjectsComparing/ArraysObjectsComparing"
 
 class RoomsContainer extends React.Component {
     state = {

@@ -39,7 +39,6 @@ export const authAPI = {
     },
 
     refresh(){
-        console.log("refresh");
         return createInstance(localStorage.token).post(`refresh`);
     }
 }

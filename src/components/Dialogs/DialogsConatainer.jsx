@@ -1,16 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {compose} from "redux";
-import {addUserToRoom, RemoveUserFromRoom, addMessage, addRoom, 
+import { RemoveUserFromRoom, addMessage, addRoom, 
 getRooms, getMessages, setCurrentRoom} from '../../redux/dialogs-reduser';
-import {logout} from '../../redux/auth-reduser';
-import Rooms from './Rooms/Rooms';
-//import s from './Dialogs.module.css';
-import MessageArea from './MessageArea/MessageArea';
 import withAuthRedirect from '../../hoc/withAuthRedirect';
 import AddRoom from './addNewRoom';
 import Header from '../Header/Header';
-import { getRoomsSelector, getMessagesSelector } from '../../redux/dialogs-selectors';
 import MessageAreaContainer from './MessageArea/MessageAreaContainer';
 import RoomsContainer from './Rooms/RoomsContainer';
 import './Dialogs.scss'
@@ -33,7 +28,6 @@ class DialogsContainer extends React.Component {
     addRoom = name => this.props.addRoom(name);
 
     render () {
-        console.log("rerender")
         return (
             <div className="Dialogs">
                 <Header/>

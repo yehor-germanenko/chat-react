@@ -1,12 +1,8 @@
 import React from 'react';
-import NewMessageForm from './NewMessageForm/NewMessageForm'
-import NewUserToRoomForm from './NewUserToRoomForm/NewUserToRoomForm'
-//import s from '../Dialogs.module.css'
 import ScrollToBottom from 'react-scroll-to-bottom';
 import '../Dialogs.scss'
 
 let MessagesArea = (props) => {
-  console.log("message area")
   return(
     <ScrollToBottom className="dialogs__messages" >
         {props.messages.map(message => <div key={message.id} className="dialogs__message">

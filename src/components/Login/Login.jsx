@@ -7,51 +7,10 @@ import {login} from "../../redux/auth-reduser";
 import {Redirect, NavLink} from "react-router-dom";
 import sControls from "../../common/FormsControls/FormsControls.module.css";
 import "./Login.scss";
-import logo from "../../assets/images/wolf.png";
 
 
 const LoginForm = (props) => {
         return( 
-        /*<form className="Main" onSubmit={props.handleSubmit}>
-        <div className="Picture">
-            <div className="LineGraph">
-            <img src="https://www.pngkit.com/png/full/373-3738572_pictures-of-animals-animals-for-logo-png.png" alt="Logo" />
-            </div>
-        </div>
-        <div className="MainForm">
-            <div className="MainFormBody">
-                <div className="ChatName">
-                    <p>Animal's Chat</p>
-                </div>
-            <div className="Welcome">
-                <p>Welcome Back, Please login to your account.</p>
-            </div>
-            <div className="Inputs">
-            <Field placeholder={"Email"} name={"email"} type={"email"}
-                       validate={[required]}
-                       component={Input}/><br/>
-            <Field placeholder={"Password"} name={"password"} type={"password"}
-                       validate={[required]}
-                       component={Input}/><br />
-                <div className="Remember">
-                <div className="RememberMe">
-                    <Field component={Input} name={"rememberMe"} type={"checkbox"} id="remember" />
-                    <label htmlFor="remember">Remember me</label>
-                </div>
-                { props.error && <div className={sControls.formSummaryError}>
-                {props.error}</div>}
-                </div>
-                <div className="LoginRegister">
-                    <button disabled={props.isFetching} className="Login">Login</button>
-                <NavLink to="/register" className="SignUp">
-                    SignUp
-                </NavLink>
-                </div>
-            </div>
-            </div>
-        </div>
-    </form>*/
-
     <form onSubmit={props.handleSubmit}>
         <div className="authorization-registration__input">
             <Field placeholder={"Email"} name={"email"} type={"email"}
@@ -147,3 +106,43 @@ export default connect(mapStateToProps, {login} )(Login);
         </div>
     </div>
      */
+
+     /*<form className="Main" onSubmit={props.handleSubmit}>
+        <div className="Picture">
+            <div className="LineGraph">
+            <img src="https://www.pngkit.com/png/full/373-3738572_pictures-of-animals-animals-for-logo-png.png" alt="Logo" />
+            </div>
+        </div>
+        <div className="MainForm">
+            <div className="MainFormBody">
+                <div className="ChatName">
+                    <p>Animal's Chat</p>
+                </div>
+            <div className="Welcome">
+                <p>Welcome Back, Please login to your account.</p>
+            </div>
+            <div className="Inputs">
+            <Field placeholder={"Email"} name={"email"} type={"email"}
+                       validate={[required]}
+                       component={Input}/><br/>
+            <Field placeholder={"Password"} name={"password"} type={"password"}
+                       validate={[required]}
+                       component={Input}/><br />
+                <div className="Remember">
+                <div className="RememberMe">
+                    <Field component={Input} name={"rememberMe"} type={"checkbox"} id="remember" />
+                    <label htmlFor="remember">Remember me</label>
+                </div>
+                { props.error && <div className={sControls.formSummaryError}>
+                {props.error}</div>}
+                </div>
+                <div className="LoginRegister">
+                    <button disabled={props.isFetching} className="Login">Login</button>
+                <NavLink to="/register" className="SignUp">
+                    SignUp
+                </NavLink>
+                </div>
+            </div>
+            </div>
+        </div>
+    </form>*/

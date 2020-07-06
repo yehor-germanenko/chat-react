@@ -10,7 +10,6 @@ class NewMessageForm extends React.Component {
     };
 
     componentWillReceiveProps = nextProps => {
-        console.log("componentWillReceiveProps " + nextProps.roomId)
         this.setState({ roomId: nextProps.roomId });
     };
     
@@ -29,7 +28,6 @@ class NewMessageForm extends React.Component {
     };
 
     render() {
-        console.log("new message " + this.props.roomId)
         return (
             <div class="dialogs__input-message">
                 <form class="dialogs__input-message-wrapper" onSubmit={this.handleSubmit}>
