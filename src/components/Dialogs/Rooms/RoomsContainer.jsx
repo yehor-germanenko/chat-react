@@ -45,25 +45,3 @@ let mapStateToProps = (state) => {
 };
 
 export default compose(connect(mapStateToProps, {setCurrentRoom, getRooms}))(RoomsContainer);
-
-    /*shouldComponentUpdate(nextProps) {
-        return ArraysObjectsComparing(this.props.rooms.slice(), nextProps.rooms.slice())
-    }
-
-    shouldComponentUpdate(nextProps) {
-        if ((this.props.roomId === nextProps.roomId)) {
-            console.log("return false")
-            return false
-        }
-        console.log("return true")
-        return true
-    }
-
-    shouldComponentUpdate(nextProps) {
-        if (!((this.props.roomId == null) && (nextProps.roomId == null))) {
-            console.log("return false")
-            return false
-        }
-        console.log("return true")
-        return true
-    }*/

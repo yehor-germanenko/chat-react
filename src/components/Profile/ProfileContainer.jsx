@@ -12,8 +12,6 @@ class ProfileContainer extends React.Component {
         this.props.getUserData()
     }
 
-    //logout = () => this.props.logout();
-
     render() {
         return (
             <div>

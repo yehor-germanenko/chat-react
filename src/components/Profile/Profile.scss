@@ -124,7 +124,8 @@
             display: flex;
             justify-content: center;
             & img{
-                width:250px;
+                width:200px;
+                border-radius: 20%;
             }
         } 
         &__body{

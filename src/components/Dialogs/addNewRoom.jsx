@@ -51,7 +51,7 @@ class AddRoom extends React.Component {
                 <div className="dialogs__create-room-button-sm space" id="createRoomButton" onClick={this.toggleActiveMobileEdit}>
                     Create room
                 </div>
-                <div onClick={this.props.toggleActiveclassNameRooms} className="dialogs__header-buttonX buttonX control-button space" id="buttonXRooms">
+                <div onClick={this.props.toggleActiveClassRooms} className="dialogs__header-buttonX buttonX control-button space" id="buttonXRooms">
                     <span></span>
                 </div>
             </div>
@@ -60,50 +60,3 @@ class AddRoom extends React.Component {
 }
 
 export default AddRoom;
-
-
-/*<div classNameName={s.CreateRoom}>
-    {!this.state.editMode &&
-        <button onClick={ this.activateEditMode.bind(this) }><p>Create Room</p></button>
-    }
-
-    {this.state.editMode &&
-        <div classNameName={s.CreateRoomEdit}>
-            <input onChange={this.onStatusChange} autoFocus={true} placeholder="Room name"/>
-            <div classNameName={s.Buttons}>
-                <button onClick={ this.save.bind(this) }>Save</button>
-                <button onClick={ this.deactivateEditMode.bind(this) }>Cansel</button>
-            </div>
-        </div>
-    }
-</div>*/
-
-    /*state = {
-        editMode: false,
-        name: null
-    }
-
-    activateEditMode = () => {
-        this.setState( {
-            editMode: true
-        } );
-    }*/
-
-    /*save() {
-        this.setState( {
-            editMode: false
-        } );
-        this.props.addRoom(this.state.name);
-    }*/
-
-    /*deactivateEditMode () {
-        this.setState( {
-            editMode: false
-        });
-    }
-
-    onStatusChange = (e) => {
-        this.setState({
-            name: e.currentTarget.value
-        });
-    }*/

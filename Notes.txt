@@ -144,3 +144,724 @@ export default compose(connect(mapStateToProps, {addUserToRoom, RemoveUserFromRo
 //<form className={s.InputArea} onSubmit={this.handleSubmit} >
               //  <input onChange={this.handleChange} value={this.state.text} type="text" name="input" wrap="hard" placeholder="Type your message here..." autoComplete="off" />
         //    </form>
+
+
+//getAuthUserData={props.getAuthUserData}
+//getAuthUserData
+
+/*<div className="authorization-registration">
+        <div className="authorization-registration__logo">
+            <img src="img/wolf.png" alt="wolf logo">
+        </div>
+        <div className="authorization-registration__form">
+            <div className="authorization-registration__form-wrapper">
+                <div className="authorization-registration__info">
+                    <h1>Animal's Chat</h1>
+                    <p>Welcome Back, Please login to your account.</p>
+                </div>
+                <form>
+                    <div className="authorization-registration__input">
+                        <input type="email" placeholder="Email">
+                    </div>
+                    <div className="authorization-registration__input">
+                        <input type="password" placeholder="Password">
+                    </div>
+                    <div className="authorization-registration__remember-me">
+                        <input name="rememberMe" type="checkbox" id="remember" value="">
+                        <label for="remember">Remember me</label>   
+                    </div>
+                    <div className="authorization-registration__buttons">
+                        <button>Login</button>
+                        <a className="authorization-registration__buttons-sign-up beauty-button" href="./registration.html">Sign Up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+     */
+
+     /*<form className="Main" onSubmit={props.handleSubmit}>
+        <div className="Picture">
+            <div className="LineGraph">
+            <img src="https://www.pngkit.com/png/full/373-3738572_pictures-of-animals-animals-for-logo-png.png" alt="Logo" />
+            </div>
+        </div>
+        <div className="MainForm">
+            <div className="MainFormBody">
+                <div className="ChatName">
+                    <p>Animal's Chat</p>
+                </div>
+            <div className="Welcome">
+                <p>Welcome Back, Please login to your account.</p>
+            </div>
+            <div className="Inputs">
+            <Field placeholder={"Email"} name={"email"} type={"email"}
+                       validate={[required]}
+                       component={Input}/><br/>
+            <Field placeholder={"Password"} name={"password"} type={"password"}
+                       validate={[required]}
+                       component={Input}/><br />
+                <div className="Remember">
+                <div className="RememberMe">
+                    <Field component={Input} name={"rememberMe"} type={"checkbox"} id="remember" />
+                    <label htmlFor="remember">Remember me</label>
+                </div>
+                { props.error && <div className={sControls.formSummaryError}>
+                {props.error}</div>}
+                </div>
+                <div className="LoginRegister">
+                    <button disabled={props.isFetching} className="Login">Login</button>
+                <NavLink to="/register" className="SignUp">
+                    SignUp
+                </NavLink>
+                </div>
+            </div>
+            </div>
+        </div>
+    </form>*/
+            /*<form className="Main" onSubmit={props.handleSubmit}>
+            <div className="Picture">
+                <div className="LineGraph">
+                <img src="https://www.pngkit.com/png/full/373-3738572_pictures-of-animals-animals-for-logo-png.png" alt="Logo" />
+                </div>
+            </div>
+            <div className="MainForm">
+                <div className="MainFormBodyRegister">
+                    <div className="ChatName">
+                        <p>Animal's Chat</p>
+                    </div>
+                    <div className="Welcome">
+                        <p>Welcome, Please sign up your account.</p>
+                    </div>
+                    <div className="Inputs">
+                            <Field placeholder={"Name"} name={"name"} type={"text"}
+                                validate={[required, validLengthName]}
+                                component={Input}/><br />
+                            <Field placeholder={"Email"} name={"email"} type={"email"}
+                                validate={[required, emailValid]}
+                                component={Input}/><br />
+                            <Field placeholder={"Password"} name={"password"} type={"password"}
+                                validate={[required, validLengthPassword]}
+                                component={Input}/><br />
+                        { props.error && <div className={style.formSummaryError}>
+                            {props.error}
+                        </div>
+                        }
+                        <div className="SignUpButton" >
+                            <button className="Login" disabled={props.isFetching}>SignUp</button>
+                        </div>
+                    </div>
+                    <div className="ComeBack">
+                        <NavLink to='/'>Already have an account? Sign in.</NavLink>
+                    </div>
+                </div>
+            </div>
+        </form>*/
+    /*
+currentRoomId: state.dialogs.currentRoomId,
+currentRoomName: state.dialogs.currentRoomName
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+/*<div classNameName={s.CreateRoom}>
+    {!this.state.editMode &&
+        <button onClick={ this.activateEditMode.bind(this) }><p>Create Room</p></button>
+    }
+
+    {this.state.editMode &&
+        <div classNameName={s.CreateRoomEdit}>
+            <input onChange={this.onStatusChange} autoFocus={true} placeholder="Room name"/>
+            <div classNameName={s.Buttons}>
+                <button onClick={ this.save.bind(this) }>Save</button>
+                <button onClick={ this.deactivateEditMode.bind(this) }>Cansel</button>
+            </div>
+        </div>
+    }
+</div>*/
+
+    /*state = {
+        editMode: false,
+        name: null
+    }
+
+    activateEditMode = () => {
+        this.setState( {
+            editMode: true
+        } );
+    }*/
+
+    /*save() {
+        this.setState( {
+            editMode: false
+        } );
+        this.props.addRoom(this.state.name);
+    }*/
+
+    /*deactivateEditMode () {
+        this.setState( {
+            editMode: false
+        });
+    }
+
+    onStatusChange = (e) => {
+        this.setState({
+            name: e.currentTarget.value
+        });
+    }*/
+
+
+
+
+
+    /*class MessagesArea extends React.Component {
+  state = {
+    timer: null
+  }
+
+  componentDidMount (){
+    let timerId = setInterval(() => this.props.getMessages(this.props.roomId), 500);
+    this.setState({timer: timerId});
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.state.timer);
+    this.setState({timer: ''})
+  }
+
+  getMessages = () => this.props.getMessages(this.props.roomId)
+
+  RemoveUserFromRoom = () => {
+    console.log("in message area")
+    this.props.RemoveUserFromRoom(this.props.roomId, this.props.userName);
+    this.props.setCurrentRoom(null, null);
+  }
+
+  render () {
+    window.onload = function(){
+      document.getElementById('scroll').scrollTop = 9999;
+    }
+    console.log("render message area")
+    return(
+    <div className={s.RoomBody}>
+      <div className={s.RoomHat}>
+        <p>{this.props.roomName}</p>
+          <div id={s.Right}>
+            <NewUserToRoomForm addUserToRoom={this.props.addUserToRoom} roomId={this.props.roomId} />
+            <div className={s.Leave}>
+                <button onClick={() => this.RemoveUserFromRoom()}>Leave from Room</button>
+            </div>
+        </div>
+      </div>
+      <ScrollToBottom className={s.Messages} >
+        {this.props.messages.map(message => <div key={message.id} className={(this.props.userName === message.username) ? `${s.Message} ${s.MyMessage}` : s.Message}>
+          <div className={s.AvatarMessage}>
+            <img src={message.avatar} alt="Avatar" />
+          </div>
+          <div className={s.TextMessage}>
+            {(this.props.userName !== message.username) &&  <h5>{message.username}</h5>}
+            <p>{message.message}</p>
+          </div>
+        </div>)}
+      </ScrollToBottom>
+      <NewMessageForm roomId={this.props.roomId} addMessage={this.props.addMessage} />
+  </div>
+  )};
+};*/
+
+
+
+
+CSSCSSCSSCSSCSSCSSCSSCSSCSSCSSCSSCSSCSSCSSCSSCSSCSSCSSCSSCSSCSSCSSCSSCSS
+
+
+
+
+  /* .app-wrapper{
+  background-position: center;
+}
+
+.button{
+  margin-top: 15px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: #43425d;
+  font-size: 1.3em;
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: .4s;
+  cursor: pointer;
+  outline: none;
+}
+
+.button:hover{
+  background-color: #37374e;
+}
+
+.header{
+  font-family: FUN_SANS;
+  font-size: 3.5em;
+}
+
+.form{
+  width: 350px;
+}
+
+.fieldWrapper{
+  width: 100%;
+}
+
+
+.fieldWrapper input{
+  display: block;
+  width: 100%;
+  border: 1px solid #A0A0A0;
+  border-radius: 5px;
+  margin: 15px 0;
+  padding: 15px 10px;
+  color: #000;
+  font-size: 1em;
+  transition: .3s;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.fieldWrapper input::placeholder{
+  color: #A0A0A0;
+}
+
+.fieldWrapper input:focus{
+  border-color: #fff;
+  box-shadow: 0 0 5px #fff;
+}
+
+.checkboxWrapper span{
+  font-size: 1em;
+  color: #A0A0A0;
+}
+
+.Navbar {
+  width: 100vw;
+  height: 70px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.04);
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Logo {
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #000;
+}
+
+.Logo img{
+  height: 40px;
+}
+
+.Logo p{
+  margin-left: 20px;
+  white-space: pre;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.Username {
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  text-align: left;
+  color: #4d4f5c;
+  white-space: pre;
+}
+
+.Chevron{
+  width: 11px;
+  height: 7px;
+}
+
+.chevron::before {
+border-style: solid;
+border-width: 0.2em 0.2em 0 0;
+content: '';
+display: inline-block;
+height: 0.45em;
+left: 0.15em;
+position: relative;
+top: 0.15em;
+transform: rotate(135deg) scale(0.7);
+vertical-align: top;
+  width: 0.45em;
+  color: #a4afb7;
+}
+
+.Profile{
+  margin-right: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-child {
+  position: absolute;
+  font-family: "Source Sans Pro";
+  font-size: 15px;
+  left: 60%;
+  top: 45px;
+display: none;
+  min-width: 65px;
+  padding: 10px 5px 10px 5px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 0.5em;
+
+}
+
+.dropdown-child > * {
+  color: #ff6565;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdown-child {
+  display: block;
+}
+
+.Avatar-profile *  {
+  width: 38px;
+  height: 38px;
+  border-radius: 50px;
+  margin-left: 10px;
+}
+
+.AllRooms {
+  height: 100%;
+  width: 100%;
+  min-width: 350px;
+  position: relative;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+
+.Main {
+  display: flex;
+  align-items: center;
+}
+
+.Picture {
+  width: 50vw;
+  height: 100vh;
+  background: rgb(36,35,72);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.LineGraph {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.LineGraph img{
+  max-width: 80%;
+}
+
+.MainForm {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.MainFormBody {
+  height: 50vh;
+  width: 45%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ChatName {
+  text-transform: uppercase;
+  font-size: 35px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 5px;
+  text-align: center;
+  color: #43425d;
+}
+
+.ChatName *{
+  margin: 0;
+}
+
+.Welcome {
+  opacity: 0.5;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.72;
+  letter-spacing: normal;
+  text-align: center;
+  color: #4d4f5c;
+  line-height: 1;
+}
+
+.Inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.Inputs > div{
+  width: 100%;
+  height: 100%;
+}
+
+.Inputs input:not([type="checkbox"]){
+  width: 100%;
+  height: 35px;
+  padding: 0 7px;
+  border-width: 0 0 3px 0;
+  border-color: #f0f0f7;
+  font-size: 15px;
+  margin-bottom: 7px;
+  box-sizing: border-box;
+}
+
+.Inputs input::placeholder {
+  color: #43425d;
+}
+
+.Inputs input:focus {
+  outline: none;
+  border-color: #a3a0fb;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.Remember {
+  margin: 10px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Remember * {
+  font-size: 15px;
+  text-decoration: none;
+  color: #000;
+}
+
+.RememberMe {
+  width: 130px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.RememberMe * {
+  cursor: pointer;
+  -moz-user-select: none;
+  user-select: none;
+  white-space: pre;
+}
+
+.RememberMe div div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.LoginRegister {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.Login {
+  width: 45%;
+  height: 50px;
+  border-radius: 4px;
+  background-color: #43425d;
+  border: none;
+  color: #fff;
+  outline: none;
+  font-size: 18px;
+}
+
+.SignUp {
+  width: 45%;
+  height: 50px;
+  border-radius: 4px;
+  background: none;
+  border: solid 1px #43425d;
+  outline: none;
+  color: #4d4f5c;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Login:active {
+  background-color: #2f2e50;
+}
+
+.SignUp:active {
+  color: #2f2e50;
+  border: solid 2px #2f2e50;
+}
+
+.SignUpButton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.ComeBack * {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: center;
+  color: #43425d;
+}
+
+.MainFormBodyRegister {
+  height: 55vh;
+  width: 45%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+            /*<div>
+                <div className="Navbar">
+                    <NavLink to='/dialogs'>
+                        <div className="Logo">
+                            <img src="https://www.pngkit.com/png/full/373-3738572_pictures-of-animals-animals-for-logo-png.png" alt="Logo" />
+                            <p>Animal's Chat</p>
+                        </div>
+                    </NavLink>
+                    <NavLink to="/profile" >
+                        <div className="Profile dropdown">
+                            <div className="dropdown-child">
+                                <div onClick={this.logout}>Log Out</div>
+                            </div>
+                            <p className="Username">{this.props.userName}</p>
+                            <div className="Avatar-profile">
+                                <img src={this.props.avatar} alt="ava" />
+                            </div>
+                        </div>
+                    </NavLink>
+                </div>
+            </div>*/
+/*
+<div class="header">
+    <div class="container">
+        <div class="nav">
+            <div class="header__logo header__item">
+                <a href="#">
+                    <div>
+                        <img src="img/wolf.png" alt="">
+                    </div>
+                    <div class="header__logo-name header__text">
+                        Animal's <span>chat</span>
+                    </div>
+                </a>
+            </div>
+            <div class="header__profile header__item">
+                <a href="#">
+                    <div class="header__profile-name header__text">
+                        Profile name
+                    </div>
+                    <div>
+                        <img src="https://gravatar.com/avatar/0296dfca0e02d76686cc9460ea3b1d99.png" alt="">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+*/
+
+
+
+
+
+    /*shouldComponentUpdate(nextProps) {
+        return ArraysObjectsComparing(this.props.rooms.slice(), nextProps.rooms.slice())
+    }
+
+    shouldComponentUpdate(nextProps) {
+        if ((this.props.roomId === nextProps.roomId)) {
+            console.log("return false")
+            return false
+        }
+        console.log("return true")
+        return true
+    }
+
+    shouldComponentUpdate(nextProps) {
+        if (!((this.props.roomId == null) && (nextProps.roomId == null))) {
+            console.log("return false")
+            return false
+        }
+        console.log("return true")
+        return true
+    }*/

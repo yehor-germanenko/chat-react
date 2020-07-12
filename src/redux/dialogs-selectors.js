@@ -15,8 +15,3 @@ const getMessages = (state) => {
 export const getMessagesSelector = createSelector(getMessages, (messages) => {
     return messages;
 })
-
-/*
-currentRoomId: state.dialogs.currentRoomId,
-currentRoomName: state.dialogs.currentRoomName
-*/

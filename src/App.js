@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.scss';
 import {Route, withRouter} from "react-router-dom";
-import Login from './components/Login/Login'
-import Register from'./components/Register/Register'
+import Login from './components/Login&Register/Login'
+import Register from'./components/Login&Register/Register'
 import Profile from './components/Profile/ProfileContainer';
 import Edit from './components/Profile/EditMode/EditModeContainer'
 //import Dialogs from '../Dialogs/DialogsConatainer';

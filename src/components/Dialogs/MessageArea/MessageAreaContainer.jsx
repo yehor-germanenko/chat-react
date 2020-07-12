@@ -61,18 +61,3 @@ let mapStateToProps = (state) => {
 };
 
 export default compose(connect(mapStateToProps, {addUserToRoom, RemoveUserFromRoom, addMessage, getRooms, getMessages, setCurrentRoom}))(MessagesAreaContainer);
-
-/*window.onload = function(){
-  document.getElementById('scroll').scrollTop = 9999;
-}*/
-
-/*shouldComponentUpdate(nextProps) {
-    return ArraysObjectsComparing(this.props.messages.slice(), nextProps.messages.slice())
-  }
-
-  shouldComponentUpdate(nextProps){
-    if (this.props.roomId === nextProps.roomId){
-      return false
-    }
-    return true
-  }*/

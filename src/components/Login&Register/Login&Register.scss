@@ -1,19 +1,5 @@
 @import "../../styles/variables";
 
-body{
-    font-family: "Source Sans Pro";
-}
-
-*{
-	margin: 0;
-    padding: 0;
-}
-
-a {
-    text-decoration: none;
-    color: #000;
-}
-
 .authorization-registration{
     height: 100vh;
     width: 100vw;
@@ -94,6 +80,7 @@ a {
 
     &__remember-me{
         margin-top: 30px;
+        display: flex;
 
         & input{
             cursor: pointer;
@@ -209,7 +196,6 @@ a {
     }
 
     &__back-to-sign-in{
-        display: block;
         margin-top: 20px;
         text-align: center;
         color: $purple;

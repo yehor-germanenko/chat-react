@@ -10,8 +10,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 let reducerApp = combineReducers({
     auth: authReducer,
     profile: profileReducer,
-    form: formReducer,
     dialogs: dialogsReducer,
+    form: formReducer,
     app: appReducer
 })
 
@@ -24,6 +24,5 @@ let rootReducer = (state, action) => {
 
 
 let store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunkMiddleware)));
-window.store = store;
 
 export default store;

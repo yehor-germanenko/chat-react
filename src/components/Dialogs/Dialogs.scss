@@ -380,6 +380,10 @@
         border-bottom: 1px solid #F7F7F7;
     }
 
+    &__down-button{
+        margin: 10px;
+    }
+
     &__message{
         display: flex;
         align-items: flex-end;
@@ -467,6 +471,11 @@
 
 .error{
     color: $danger-red;
+}
+
+.css-1qyrjaz, [data-css-1qyrjaz]{
+    height: 50px;
+    width: 50px;
 }
 
 @media (min-width: 990px){
