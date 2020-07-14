@@ -400,6 +400,10 @@
             background-color: #f5f6fa;
             color: #333534;
             padding: 12px;
+
+            & p{
+                font-weight: bold;
+            }
         }
     }
 
