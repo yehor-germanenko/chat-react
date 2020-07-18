@@ -96,14 +96,18 @@
 
 @media (max-width: 768px) {
     .profile{
+        background-color: $purple;
         
         &__body{
             flex-direction: column;
+            box-shadow: none;
         }
 
         &__info{
+            margin-left: 0;
             &-name{
                 margin-top: 5px;
+                text-align: center;
             }
             &-item{
                 margin-top: 20px;
@@ -111,7 +115,7 @@
         }
 
         &__buttons{
-            margin-top: 10px;
+            margin-top: 25px;
             flex-direction: row;
             align-items: center;
         }
@@ -133,8 +137,3 @@
         }
     }
 }
-
-
-
-/*
-*/
